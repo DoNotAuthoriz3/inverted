@@ -1,0 +1,21 @@
+<projectList name="Default Projects">
+	<project num="001">
+		<name>Hello World</name>
+		<lang>c++</lang></project>
+	<project num="002">
+		<lang>java</lang>
+		<name>Hello World</name></project>
+	<project num="003">
+		<name>Project Tracker</name>
+		<lang>java</lang></project>
+	<project num="004">
+		<name>C++ Experimentation</name>
+		<lang>c++</lang></project>
+	<project num="005">
+		<name>Java Exercises</name>
+		<lang>java</lang></project>
+	<project num="006">
+		<name>Web Retrieval Sample Code</name>
+		<lang>Java</lang>
+	</project>
+</projectList>

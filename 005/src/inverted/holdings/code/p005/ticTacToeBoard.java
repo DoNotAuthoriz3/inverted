@@ -1,0 +1,37 @@
+package inverted.holdings.code.p005;
+import inverted.holdings.code.p006.jout;
+
+public class ticTacToeBoard
+{
+	public static jout j = new jout();
+
+	public static void draw (int x, int y) 
+	{
+		char[] numeros = {'1','2','3','4','5','6','7','8','9'};
+		
+		j.outln("+---+---+---+");
+		j.outln("| " + numeros[0] + " | " + numeros[3] + " | " + numeros[6] + " |");
+		j.outln("+---+---+---+");
+		j.outln("| " + numeros[1] + " | " + numeros[4] + " | " + numeros[7] + " |");
+		j.outln("+---+---+---+");
+		j.outln("| " + numeros[2] + " | " + numeros[5] + " | " + numeros[8] + " |");
+		j.outln("+---+---+---+");
+	}
+	
+	public static void redraw(ticTacToePlayer X, ticTacToePlayer O) 
+	{
+		char[] numeros = {'1','2','3','4','5','6','7','8','9'};
+		
+		for (int i = 1; i < 10; i++) {	
+			if (X.owns(i)) numeros[i-1] = 'X';
+			else if (O.owns(i)) numeros[i-1] = 'O'; }
+
+		j.outln("+---+---+---+");
+		j.outln("| " + numeros[0] + " | " + numeros[3] + " | " + numeros[6] + " |");
+		j.outln("+---+---+---+");
+		j.outln("| " + numeros[1] + " | " + numeros[4] + " | " + numeros[7] + " |");
+		j.outln("+---+---+---+");
+		j.outln("| " + numeros[2] + " | " + numeros[5] + " | " + numeros[8] + " |");
+		j.outln("+---+---+---+");
+	}
+}

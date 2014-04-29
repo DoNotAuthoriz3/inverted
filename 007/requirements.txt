@@ -1,0 +1,35 @@
+Requirements :P
+
+Components:
+
+getStockData -- retrieves the <<information>> (price, volume, ticker...what else?) for certain <<stocks>> (a single stock?  a list of stock?  how is this specified?) from the last <<period of time>> (variable?  how is this specified?) and puts it in <<______>> (returned object?  A DB somewhere?  a file?)
+
+placeOrder -- <<authenticates>> (how?  SSL certs?) to a <<broker>> (which broker?) and sends a secured message (which message?  How is which messages specified?  Where do the contents come from?)
+
+analyze -- uses the information about <<a stock>> (or list of stocks?; potential to extend to data about the market and observed correlations on stock behavior?) to <<model>> (how?  Simple Moving Average + Crossover at first) the stock's future behavior and determine <<appropriate action>> (should analyze then undertake the action?  Just return knowledge of it?  how should this be extensible?  
+
+metaThread -- <<manages>> (how?) the process of getting data, analyzing data, and responding appropriately.  <<Interprets>> (how?) and <<attempts to resolve>> (how?) errors passed up from the other components and <<start/stop/restart/shutdown gracefully>> (how?  MUST be robust while providing <<notification>> (what kind?  what is the best way to notify me in a timely manner?)
+
+----------------------------------------------------------
+
+Documentary Prototype:
+
+getStockData
+
+placeOrder
+
+analyze
+
+metaThread
+
+----------------------------------------------------------
+
+Project Schedule:
+
+getStockData
+
+placeOrder
+
+analyze
+
+metaThread
