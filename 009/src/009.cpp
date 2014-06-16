@@ -1,8 +1,8 @@
 //============================================================================
-// Name        : 001.cpp
-// Author      : 
+// Name        : 009.cpp
+// Author      : P3+J3^u!
 // Version     :
-// Copyright   : Your copyright notice
+// Copyright   : <placeholder copyright>
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
@@ -10,6 +10,6 @@
 using namespace std;
 
 int main() {
-	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
+
 	return 0;
 }

@@ -18,4 +18,12 @@
 		<name>Web Retrieval Sample Code</name>
 		<lang>Java</lang>
 	</project>
+	<project num="007">
+		<name>Project Planning</name>
+		<lang>Java</lang>
+	</project>
+	<project num="008">
+		<name>Endless Legend Fan Fiction</name>
+		<lang>English</lang>
+	</project>
 </projectList>
