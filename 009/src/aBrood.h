@@ -18,15 +18,15 @@
  * that that level of optimization will never prove necessary, although
  * when the project succeeds I anticipate that it WILL be necessary. */
 
-#include aZerg.h
+#include "aZerg.h"
 
 class aBrood
 {
 	public:
 		aZerg get(int);
-//		aZerg get(string);
+		aZerg get(string);
 		aZerg set(int);
-//		aZerg set(string);
+		aZerg set(string);
 
 	private:
 		aZerg[] myList;

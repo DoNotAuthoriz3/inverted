@@ -12,6 +12,8 @@
  * basic functions of the Larva base class (and, therefore, the basic
  * functions of *all* classes in the project. */
 
+using namespace std;
+
 class aZerg
 {
 	public:

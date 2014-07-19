@@ -11,13 +11,15 @@
 /* TODO: the aCerebrate abstract class should contain the prototypes for the
  * basic functions of the Cerebrate classes */
 
+#include "aBrood.h"
+
 class aCerebrate
 {
 	public:
 
 	private:
 	// container for each of the objects this Cerebrate manages
-//		List<aZerg> theBrood;
+//		aBrood<aZerg> theBrood;
 
 };
 
