@@ -89,6 +89,6 @@ public class stockQuoteList
 	//	TODO: make it smarter.  Like enough to do something useful
 	//	if either index or myQuotesList isn't set/is set to something bad/
 	//	is set to something misleading
-	public boolean fin() { return index <= myQuotesList.length ? true : false; }
-	
+	public boolean fin() { 
+	   return 0 == (index = index > myQuotesList.length ? 0 : index); }	
 }
