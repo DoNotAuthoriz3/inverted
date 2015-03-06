@@ -2,11 +2,15 @@ package inverted.holdings.code.p006;
 /* This class is badly named.
  * TODO: something about that. */
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class stockQuote implements Quote
 {
 	String ticker, name, lang;
-	float ask, bid;
-    int vol;
+    Map<StockAttributeType, StockAttribute> attributes = new HashMap<>();
+	Float ask, bid;
+    Integer vol;
 	
 	public stockQuote()
 	{
@@ -14,17 +18,20 @@ public class stockQuote implements Quote
 	}
 
     @Override
-    public float getAsk() {
-        return ask;
+    public Object getAttribute(StockAttributeType attr)
+    {
+        switch (attr) {
+            case ASK :
+                return ask;
+            case BID :
+                return bid;
+            case VOLUME :
+                return vol;
+        }
+
+        return null;
     }
 
     @Override
-    public float getBid() {
-        return bid;
-    }
-
-    @Override
-    public int getVol() {
-        return vol;
-    }
+    public void setAttribute(StockAttributeType attr, Object value) { attributes.put(attr, new StockAttribute(attr)); }
 }
