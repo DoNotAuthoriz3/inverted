@@ -1,0 +1,33 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.swt;singleton:=true
+Bundle-Version: 3.102.1.v20130827-2021
+Bundle-ClassPath: org.eclipse.swt_3.102.1.v20130827-2021.jar
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Export-Package: org.eclipse.swt,
+ org.eclipse.swt.accessibility,
+ org.eclipse.swt.awt,
+ org.eclipse.swt.browser,
+ org.eclipse.swt.custom,
+ org.eclipse.swt.dnd,
+ org.eclipse.swt.events,
+ org.eclipse.swt.graphics,
+ org.eclipse.swt.internal;x-friends:="org.eclipse.ui",
+ org.eclipse.swt.internal.image;x-internal:=true,
+ org.eclipse.swt.internal.theme;x-internal:=true,
+ org.eclipse.swt.layout,
+ org.eclipse.swt.opengl,
+ org.eclipse.swt.printing,
+ org.eclipse.swt.program,
+ org.eclipse.swt.widgets
+Build-Jdk: 1.7.0_25
+Eclipse-ExtensibleAPI: true
+Bundle-RequiredExecutionEnvironment: CDC-1.0/Foundation-1.0,
+ J2SE-1.3
+Eclipse-SourceReferences: scm:git:git://git.eclipse.org/gitroot/platform/eclipse.platform.swt.git;path="bundles/org.eclipse.swt";tag="M20130828-0800";commitId=a40a5428391ea02c4275ba90ff106cbcd680d681
+Created-By: Apache Maven
+Built-By: e4Build
+DynamicImport-Package: org.eclipse.swt.accessibility2, org.mozilla.xpcom
+Archiver-Version: Plexus Archiver

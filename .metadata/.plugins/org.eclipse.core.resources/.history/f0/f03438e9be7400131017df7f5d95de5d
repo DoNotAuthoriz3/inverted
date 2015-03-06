@@ -1,0 +1,11 @@
+package inverted.holdings.code.p005;
+
+public class readName
+{
+	
+	public readName()
+	{
+		// TODO Auto-generated constructor stub
+	}
+	
+}

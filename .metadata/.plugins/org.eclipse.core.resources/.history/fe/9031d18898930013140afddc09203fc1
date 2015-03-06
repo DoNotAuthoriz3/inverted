@@ -1,0 +1,35 @@
+package inverted.holdings.code.p005;
+
+public class helloWorld
+{
+	public static void main(String[] args)
+	{
+		printHelloWorld("ddada");
+	}
+	
+	public static void jout(String myThingToPrint)
+	{
+		System.out.print(myThingToPrint);
+	}
+	
+	public static void joutln(String myThingToPrint)
+	{
+		jout(myThingToPrint + "\n");
+	}
+	
+	public static void printHelloWorld()
+	{
+		joutln("Hello World");
+	}
+}
+
+/*
+ * 
+ * 
+ * 
+ * joutln
+ *  String myThingToPrint = ;
+ * 
+ * 
+ * 
+ */

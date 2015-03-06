@@ -1,0 +1,13 @@
+package inverted.holdings.code.p006;
+
+import java.util.Calendar;
+
+public interface EquityAttributeImporter 
+{
+  public static EquityAttributeImporter getImporter(String returnType)
+  {
+     return (EquityAttributeImporter) new ImportYahooStock();
+  }
+  
+  public float getAttribute(String ticker, String attribute, Calendar time);
+}

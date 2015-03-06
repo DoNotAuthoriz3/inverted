@@ -1,6 +1,5 @@
 package inverted.holdings.code.p006;
-/* by: badmonkey 
- * 
+/* 
  * This class maintains a list of stocks to check
  * along with any parameters associated with those stocks.
  * 

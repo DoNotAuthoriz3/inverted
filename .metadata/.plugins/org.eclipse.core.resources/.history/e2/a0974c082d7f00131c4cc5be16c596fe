@@ -1,0 +1,177 @@
+package inverted.holdings.code.p005;
+import java.util.Scanner;
+
+public class readName
+{	
+	public static void main (String[] args) {
+	Scanner in = new Scanner(System.in);
+	String firstName, lastName;
+	String q1, q2, q3;
+	
+//pick yer first name	
+	
+	System.out.println("What's your first name?");
+	firstName = in.nextLine();
+	
+	
+	
+if (firstName.equals("David"))
+	System.out.println("Ugh, whatever. I'm calling you Aaron.");
+else if (firstName.equals("Aaron"))
+	System.out.println("Aaron. The aardvark of names. Alrighty, what's your last name?");
+else if (firstName.equals("Elliot"))
+	System.out.println("Elliot. Hm. Did you know that in names based in Hebrew 'El' refers to God? Your name is like God-liot. I'm just gonna call you Aaron, though. What's your last name?");
+//can I wrap this text in a more intelligent way?
+
+if (firstName.equals("David"))
+	firstName = "Aaron";
+else if (firstName.equals("Elliot"))
+	firstName = "Aaron";
+
+else if (firstName.equals("Chaz"))
+	System.out.println("Bwahahaha! What, are you Chaz BONO? Okay, okay. What's your last name?");
+else if (firstName.equals("Max"))
+	System.out.println("Max. Is that short for Maximum? What's your last name?");
+else if (firstName.equals("Daniel"))
+	System.out.println("Oh, Daniel! What a strong name. You must be so handsome. What's Your last name?");
+else if (firstName.equals("Justin"))
+	System.out.println("It's JUSTIN-ame. I'm FUNNY, dood. For real. Alright, what's your last name?");
+else
+	System.out.println("LIES. Ugh, fine. I'll take your word for it, but for the record: I do NOT believe you.");
+
+lastName = in.nextLine();
+
+if (lastName.equals("Colvin") && (firstName.equals("Daniel")))
+	System.out.println("A name fit for a king!");
+else if (lastName.equals("Fischer"))
+	System.out.println("Fischer. I got nothin' fo dat.");
+else if (lastName.equals("Yip"))
+	System.out.println("Yippeeee! Oh, just 'Yip'. I see. I was more excited when it was Yipeeee. Ever think about changing it?");
+else if (lastName.equals("Metzler"))
+	System.out.println("Metzler! I remember you! We Metzlered in Dallas. I know, I know: I'm so clever it hurts.");
+else
+	System.out.println("Meh, you dont sound so important. But good for you, having a last name and all.");
+
+
+
+System.out.println("Hokay. So. " + firstName + " " + lastName + ". So, 'yay' or 'nay', you got any weapons on ya?");
+
+q1 = in.nextLine();
+
+if (q1.equals("nay"))
+	System.out.println("What?! What do you think this? A fucking GAME?! Fine. Take one of these: sword, sheild or gun?");
+else if (q1.equals("yay")) {
+	System.out.println("Sa-weeeet! What did you bring?");
+	in.nextLine(); 
+	System.out.println("Ohkay, that may be how you solve problems in CANADA, but here we use actual weapons. Take one of these: sword, shield or gun?");
+}
+	//insert a response loop in case the user can't spell a three letter word
+	
+	
+	q2 = in.nextLine();
+	
+if (q2.equals("sword"))
+		System.out.println("Cool. I'll take the other two. That seems fair.");
+else if (q2.equals("shield"))
+	System.out.println("OH, you must be the cute one in your circle. Well, Captain 'Merica pick your opponent:");
+else if (q2.equals("gun"))
+	System.out.println("Cool. Don't worry about it being unloaded, we'll pick up some ammo on the way.");
+else
+	System.out.println("You want to play it like that? fine. You just get to use this dildo. Let's not talk about why I have it in my adventure pack.");
+
+
+
+System.out.println("So, which would you like to face first, the 'dragon' or your 'conscience'?");
+
+q3 = in.nextLine();
+
+if (q3.equals("dragon"))
+	System.out.println("Afraid of our own personal demons, eh? Well, I guess they aren't worth facing if the dragon kills you.");
+else if (q3.equals("conscience"))
+	System.out.println("Gettin' to the nitty gritty, eh? Unfortunately your conscience is manifesting as a dragon. It's bigger than the other one, and it's PISSED.");
+
+//insert response loop
+
+
+
+if (q2.equals("sword"))
+	System.out.println("Go poke it with your sword. I'm going to hang back and not die. But I'll totally cover fire for you. Here");
+		
+else if (q2.equals("gun"))
+	System.out.println("Here he comes! Wait, did we forget to grab ammo? Lol, SCATTERBRAINED!");
+
+else if (q2.equals("shield"))
+	System.out.println("So you've got your...shield. Um.. Do what you can. I'm going in. Yaaaaah!!!");
+	
+
+	
+	
+}}}
+
+	
+	
+	
+	/*
+	public static void main(String[] args)
+	{
+		Scanner in = new Scanner(System.in);
+		String firstName, lastName;
+		int firstNum, lastNum, total;
+		firstNum = 5;
+		lastNum = -13;
+		total = firstNum + lastNum;		
+		
+		if ((lastNum > total) && (firstNum < total)) 
+		{ 
+			System.out.println(total + " is greater than both firstNum and lastNum");
+			System.out.println("Total - firstNum = " + (total - firstNum));
+			System.out.println("Total - lastNum = " + (total - lastNum));
+			
+			if (lastNum > firstNum)
+				System.out.println(Integer.toString(total) + " > " + lastNum + " > " + firstNum);
+			else
+				System.out.println(Integer.toString(total) + " > " + firstNum + " > " + lastNum);
+			
+		}
+		else if (true)
+			{ System.out.println(total + " is less than " + lastNum); }
+		else
+			System.out.println(firstNum + " is greater than " + total);
+				
+		System.out.println("Do you want to take branch one?");
+		firstName = in.nextLine();
+
+		
+		if (firstName.equals("yes"))
+		{
+			System.out.println("Do you want to take branch two?");
+			lastName = in.nextLine();
+			if(lastName.equals("yes"))
+				System.out.println("You made it to three!");
+		}
+		else
+		{
+			System.out.println("Are you sure?");
+			lastName = in.nextLine();
+			if(lastName.equals("yes"))
+				System.out.println("Awww!");
+			else
+			{
+				System.out.println("Do you want to take branch two?");
+				lastName = in.nextLine();
+			}
+		}
+
+		System.out.println("What is your last name?");
+		lastName = in.nextLine();
+		
+		in.close();
+	}	
+}
+
+/*
+ * stdin
+ * stdout
+ * 
+ * 
+ */

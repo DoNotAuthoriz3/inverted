@@ -1,0 +1,47 @@
+package inverted.holdings.code.p005;
+import java.util.Scanner;
+
+public class readName
+{	
+	public static void main(String[] args)
+	{
+		Scanner in = new Scanner(System.in);
+		String firstName, lastName;
+		int firstNum, lastNum, total;
+		firstNum = 5;
+		lastNum = 13;
+		total = firstNum + lastNum;
+		
+		System.out.println("What is your first name?");
+		firstName = in.nextLine();
+
+		System.out.println("What is your last name?");
+		lastName = in.nextLine();
+		
+		System.out.println("Hello " + firstName + " " + lastName + "!");
+		
+		if (total > firstNum) 
+			System.out.println(total + " is greater than " + firstNum);	
+		else
+			System.out.println(firstNum + " is greater than " + total);
+
+		if (firstName.equals("David"))
+			System.out.println("Hi David!  What is your last name?");
+		else if (firstName.equals("Keaton"))
+			System.out.println("Hi Keaton!  What is your last name?");
+		else if (firstName.equals("Chaz"))
+			System.out.println("Hi Starbuck!  What do you hear?");
+		else
+			System.out.println("This is David's laptop; go away!");
+		
+		
+		in.close();
+	}	
+}
+
+/*
+ * stdin
+ * stdout
+ * 
+ * 
+ */

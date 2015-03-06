@@ -1,0 +1,135 @@
+16:19:20 **** Incremental Build of configuration Default for project 011 ****
+make all 
+g++ -c -g main.cpp
+g++ -g -o hello main.o
+22:07:30 **** Build of configuration Debug for project 011 ****
+make all 
+Building file: ../src/011.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/011.d" -MT"src/011.d" -o "src/011.o" "../src/011.cpp"
+Finished building: ../src/011.cpp
+ 
+Building target: 011
+Invoking: MacOS X C++ Linker
+g++  -o "011"  ./src/011.o   
+Finished building target: 011
+ 
+22:16:30 **** Build of configuration Debug for project 011 ****
+make all 
+make: Nothing to be done for `all'.
+22:17:12 **** Clean-only build of configuration Debug for project 011 ****
+make clean 
+rm -rf  ./src/011.o  ./src/011.d  011
+ 
+22:17:17 **** Build of configuration Debug for project 011 ****
+make all 
+Building file: ../src/hello.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/hello.d" -MT"src/hello.d" -o "src/hello.o" "../src/hello.cpp"
+Finished building: ../src/hello.cpp
+ 
+Building target: 011
+Invoking: MacOS X C++ Linker
+g++  -o "011"  ./src/hello.o   
+Finished building target: 011
+ 
+22:17:21 **** Incremental Build of configuration Debug for project 011 ****
+make all 
+make: Nothing to be done for `all'.
+22:17:31 **** Incremental Build of configuration Debug for project 011 ****
+make all 
+make: Nothing to be done for `all'.
+22:17:37 **** Incremental Build of configuration Debug for project 011 ****
+make all 
+make: Nothing to be done for `all'.
+22:35:32 **** Build of configuration Debug for project 011 ****
+make all 
+make: Nothing to be done for `all'.
+20:04:38 **** Clean-only build of configuration Debug for project 001 ****
+make clean 
+rm -rf  ./src/001.o  ./src/001.d  001
+ 
+20:04:38 **** Clean-only build of configuration Debug for project 004 ****
+make clean 
+rm -rf  ./src/004.o  ./src/004.d  004
+ 
+20:04:38 **** Clean-only build of configuration Debug for project 011 ****
+make clean 
+rm -rf  ./src/hello.o  ./src/hello.d  011
+ 
+20:05:53 **** Build of configuration Debug for project 011 ****
+make all 
+Building file: ../src/hello.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/hello.d" -MT"src/hello.d" -o "src/hello.o" "../src/hello.cpp"
+Finished building: ../src/hello.cpp
+ 
+Building target: 011
+Invoking: MacOS X C++ Linker
+g++  -o "011"  ./src/hello.o   
+Finished building target: 011
+ 
+20:04:43 **** Build of configuration Debug for project 001 ****
+make all 
+Building file: ../src/001.cpp
+Invoking: GCC C++ Compiler
+clang++ -O0 -g3 -Wall -c -fmessage-length=0 -v -fPIC -MMD -MP -MF"src/001.d" -MT"src/001.d" -o "src/001.o" "../src/001.cpp"
+Apple LLVM version 5.1 (clang-503.0.40) (based on LLVM 3.4svn)
+Target: x86_64-apple-darwin13.3.0
+Thread model: posix
+ "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang" -cc1 -triple x86_64-apple-macosx10.9.0 -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -main-file-name 001.cpp -mrelocation-model pic -pic-level 2 -mdisable-fp-elim -masm-verbose -munwind-tables -target-cpu core2 -target-linker-version 236.3 -v -gdwarf-2 -coverage-file /Users/pilot/code/001/Debug/src/001.o -resource-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/5.1 -dependency-file src/001.d -MP -MT src/001.d -stdlib=libc++ -O0 -Wall -fdeprecated-macro -fdebug-compilation-dir /Users/pilot/code/001/Debug -ferror-limit 19 -fmessage-length 0 -stack-protector 1 -mstackrealign -fblocks -fobjc-runtime=macosx-10.9.0 -fencode-extended-block-signature -fcxx-exceptions -fexceptions -fdiagnostics-show-option -vectorize-slp -o src/001.o -x c++ ../src/001.cpp
+clang -cc1 version 5.1 based upon LLVM 3.4svn default target x86_64-apple-darwin13.3.0
+ignoring nonexistent directory "/usr/include/c++/v1"
+#include "..." search starts here:
+#include <...> search starts here:
+ /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/c++/v1
+ /usr/local/include
+ /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/5.1/include
+ /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include
+ /usr/include
+ /System/Library/Frameworks (framework directory)
+ /Library/Frameworks (framework directory)
+End of search list.
+Finished building: ../src/001.cpp
+ 
+Building target: 001
+Invoking: MacOS X C++ Linker
+clang++ -v  -o "001"  ./src/001.o   
+Apple LLVM version 5.1 (clang-503.0.40) (based on LLVM 3.4svn)
+Target: x86_64-apple-darwin13.3.0
+Thread model: posix
+ "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld" -demangle -dynamic -arch x86_64 -macosx_version_min 10.9.0 -o 001 ./src/001.o -lc++ -lSystem /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/5.1/lib/darwin/libclang_rt.osx.a
+Finished building target: 001
+ 
+20:04:45 **** Build of configuration Debug for project 004 ****
+make all 
+Building file: ../src/004.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/004.d" -MT"src/004.d" -o "src/004.o" "../src/004.cpp"
+Finished building: ../src/004.cpp
+ 
+Building target: 004
+Invoking: MacOS X C++ Linker
+g++  -o "004"  ./src/004.o   
+Finished building target: 004
+ 
+
+**** Build of configuration Debug for project 009 ****
+
+Nothing to build for project 009
+20:04:46 **** Incremental Build of configuration Debug for project 011 ****
+make all 
+make: Nothing to be done for `all'.
+15:22:35 **** Build of configuration Debug for project 001 ****
+make all 
+make: Nothing to be done for `all'.
+15:22:36 **** Build of configuration Debug for project 004 ****
+make all 
+make: Nothing to be done for `all'.
+
+**** Build of configuration Debug for project 009 ****
+
+Nothing to build for project 009
+15:22:37 **** Build of configuration Debug for project 011 ****
+make all 
+make: Nothing to be done for `all'.

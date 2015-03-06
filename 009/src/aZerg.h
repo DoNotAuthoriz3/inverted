@@ -26,6 +26,6 @@ class aZerg
 	private:
 
 
-};
+	};
 
-#endif /* AZERG_H_ */
+	#endif /* AZERG_H_ */

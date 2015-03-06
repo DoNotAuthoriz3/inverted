@@ -1,0 +1,11 @@
+package inverted.holdings.code.p005;
+
+public class CallMeClass
+{
+	
+	public CallMeClass()
+	{
+		// TODO Auto-generated constructor stub
+	}
+	
+}

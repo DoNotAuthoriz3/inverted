@@ -1,0 +1,50 @@
+package inverted.holdings.code.p005;
+
+public class helloWorld
+{
+	public static void main(String[] args)
+	{
+		printHelloWorld();
+		thisTakesTwo(5, 2);
+	}
+	
+	public static void jout(String myThingToPrint)
+	{
+		System.out.print(myThingToPrint);
+	}
+	
+	public static void joutln(String jimmyjams)
+	{
+		jout(jimmyjams + "\n");
+	}
+	
+	public static void printHelloWorld()
+	{
+		joutln("Hello World");
+	}
+	
+	public static void thisTakesTwo(int a, int b)
+	{
+		if (a < b)
+			joutln("A < B");
+		else
+			joutln("B < A");
+		
+	}
+}
+
+/*
+ * 
+ * 
+ * 
+ * joutln
+ *  String jimmyjams = "Hello World!";
+ *  
+ *  jout
+ *  		String myThingToPrint = "Hello World!\n";
+ * 
+ * printHelloWorld
+ *    
+ * 
+ * 
+ */

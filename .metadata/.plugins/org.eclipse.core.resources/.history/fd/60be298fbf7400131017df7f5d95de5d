@@ -1,0 +1,20 @@
+package inverted.holdings.code.p005;
+
+import java.util.Scanner;
+
+public class readName
+{	
+	public static void main()
+	{
+		Scanner in = new Scanner(System.in);
+		String firstName, lastName;
+		
+		System.out.println("What is your first name?");
+		firstName = in.next();
+
+		System.out.println("What is your last name?");
+		lastName = in.next();
+		
+		System.out.println("Hello " + firstName + " " + " " + lastName + "!");
+	}	
+}

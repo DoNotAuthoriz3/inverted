@@ -1,0 +1,20 @@
+package inverted.holdings.code.p005;
+import java.util.Scanner;
+
+public class javaExercises
+{	
+	public static void main(String[] args)
+	{
+		Scanner in = new Scanner(System.in);
+		int leg1 = 0, leg2 = 0;
+		
+		// TODO Auto-generated constructor stub
+		System.out.print("Length of first leg: ");
+		leg1 = in.nextInt();
+		
+		System.out.print("Length of second leg: ");
+		leg2 = in.nextInt();
+		
+		System.out.println("The hypotenuse is " + Integer.toString(leg1^2) );
+	}	
+}

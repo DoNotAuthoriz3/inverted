@@ -1,0 +1,30 @@
+/*
+ * aBrood.h
+ *
+ *  Created on: Jun 18, 2014
+ *      Author: pilot
+ */
+
+#ifndef ABROOD_H_
+#define ABROOD_H_
+
+/* TODO: the aBrood abstract class should contain the prototypes for the
+ * basic functions of the Brood class (which will be an in-memory B-tree
+ * designed to serve the functions of arrays and linked lists dynamically */
+
+#include aZerg.h
+
+class aBrood
+{
+	public:
+		aZerg get(int);
+//		aZerg get(string);
+		aZerg set(int);
+//		aZerg set(string);
+
+	private:
+
+
+};
+
+#endif /* ABROOD_H_ */

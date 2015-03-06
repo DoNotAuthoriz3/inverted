@@ -1,0 +1,34 @@
+package inverted.holdings.code.p005;
+
+import java.util.Scanner;
+
+public class CallMeClass
+{
+	
+	public static void main()
+	{
+		Scanner in = new Scanner(System.in);
+		boolean thing, vegetable, b3, b4, b5;
+		
+		System.out.println("Are you a thing? (y/n)");
+		if (in.nextLine().equals("y"))
+			thing = true;
+		else
+			thing = false;
+
+		System.out.println("Are you not a vegetable? (y/n)");
+		if ( in.nextLine().equals("y") )
+			vegetable = false;
+		else
+			vegetable = true;
+		
+		b3 = thing || vegetable;
+		b4 = vegetable || vegetable && thing;
+		
+		if ( !b4 )
+			System.out.println("Not b1");
+		else
+			System.out.println("b1");
+	}
+	
+}

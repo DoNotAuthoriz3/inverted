@@ -1,0 +1,30 @@
+//============================================================================
+// Name        : 001.cpp
+// Author      : 
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+using namespace std;
+
+int main(int argc, const char* argv[])
+{
+	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
+
+	int x = 0, y = 0, z[20];
+
+	for (int i=0; i<10; i++)
+	{
+		x = 1;
+		y = y + x;
+		z[y] = y * y;
+	}
+
+	for (int i = 0; i < 20; i++)
+		cout << "z[i] = " << z[i] << endl;
+
+	return 0;
+}
+

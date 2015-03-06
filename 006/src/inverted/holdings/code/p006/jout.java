@@ -1,6 +1,5 @@
 package inverted.holdings.code.p006;
-/* by: badmonkey
- * 
+/* 
  * This class is silly.
  * 
  *  Really, it's literally designed to be extended.

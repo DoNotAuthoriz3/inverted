@@ -1,0 +1,8 @@
+package herro;
+
+public class HerroWyold {
+   
+   public void main() {
+      System.out.println("Hello World.");
+   }
+}

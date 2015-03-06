@@ -1,0 +1,9 @@
+AbstractTextEditor.Color.Background=46,45,41
+AbstractTextEditor.Color.SelectionBackground=157,208,247
+currentLineColor=70,56,39
+eclipse.preferences.version=1
+lineNumberColor=204,203,206
+overviewRuler_migration=migrated_3.1
+printMargin=true
+printMarginColumn=120
+spellingEngine=org.eclipse.jdt.internal.ui.text.spelling.DefaultSpellingEngine

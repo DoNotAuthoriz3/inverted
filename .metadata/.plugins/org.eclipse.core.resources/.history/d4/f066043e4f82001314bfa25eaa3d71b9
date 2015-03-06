@@ -1,0 +1,31 @@
+package inverted.holdings.code.p005;
+import java.util.Random;
+
+public class matrixSim
+{	
+	public static void main(String[] args)
+	{
+		// TODO Auto-generated method stub
+		Random myRand = new Random(15);
+		boolean myBool = true;
+		
+		char[] randOM = new char [25];
+		char myChar;	
+		int counter = 0;
+		
+		
+		while(myBool || !myBool)
+		{
+			if(counter < 25)
+			{
+				randOM[counter] = (char) (myRand.nextInt() % 224 + 32);
+				counter++;
+			}
+			else
+			{
+				System.out.println(randOM);
+				counter = 0;			
+			}
+		}
+	}
+}

@@ -30,4 +30,8 @@
 		<name>Project Prototypes</name>
 		<lang>C++</lang>
 	</project>
+	<project num="010">
+		<name>Project Documentation</name>
+		<lang>English</lang>
+	</project>
 </projectList>

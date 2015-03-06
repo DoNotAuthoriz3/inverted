@@ -1,8 +1,7 @@
-import java.awt.HeadlessException;
 import javax.swing.JFrame;
 
 public class HelloGUI extends JFrame
-{	public HelloGUI() throws HeadlessException
+{	public HelloGUI() 
 	{	this.setSize(200, 100);
 		this.setTitle("Hello World");	}
 	

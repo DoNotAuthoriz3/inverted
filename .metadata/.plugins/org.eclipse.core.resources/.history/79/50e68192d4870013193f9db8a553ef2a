@@ -1,0 +1,54 @@
+package inverted.holdings.code.p005;
+
+import java.util.Random;
+
+public class hangererman
+{	
+	public static void main(String[] args)
+	{
+		char[] answer = new char[15];
+		
+		Random rng = new Random();
+		int x = rng.nextInt(3), lCount = 0;
+		boolean solved = false, dead = false;
+		
+		if ( 1 > x )
+		{
+			answer[0] = 's';
+			answer[1]  = answer[3] = 'e';
+			answer[2] = 'r';
+			answer[4] = 'i';
+			answer[5] = 'n';
+		}
+		else if ( 2 > x )
+		{
+			answer[0] = 'f';
+			answer[1] = 'r';
+			answer[2] = 'a';
+			answer[3] = 'u';
+			answer[4] = 'd';
+		}
+		else if ( 3 > x )
+		{
+			answer[0] = 'p';
+			answer[1] = answer[6] = 's';
+			answer[2] = 'u';
+			answer[3] = answer[9] = answer[12] = 'e';
+			answer[4] = 'd';
+			answer[5] = 'o';
+			answer[7] = answer[11] = 'c';
+			answer[8] = 'i';
+			answer[10] = 'n';
+		}
+		
+		for (int i = 0; answer[i] != 0; i++, lCount++) { System.out.print(answer[i]); }
+		
+		System.out.print('\n');
+		System.out.println("Count is " + lCount);
+		
+		while ( !solved && !dead )
+		{
+			solved = true;
+		}
+	}	
+}

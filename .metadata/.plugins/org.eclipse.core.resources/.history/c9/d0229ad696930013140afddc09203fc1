@@ -1,0 +1,24 @@
+package inverted.holdings.code.p005;
+
+public class helloWorld
+{
+	public static void main(String[] args)
+	{
+		jout("Hello World!");
+	}
+	
+	public static void jout(String myThingToPrint)
+	{
+		System.out.print(myThingToPrint);
+	}
+}
+
+/*
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ */

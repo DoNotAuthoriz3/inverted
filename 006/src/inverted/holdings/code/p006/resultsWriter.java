@@ -1,6 +1,5 @@
 package inverted.holdings.code.p006;
-/* by: badmonkey
- * 
+/* 
  * This class records the provided information about a
  * stock in a file.
  * 

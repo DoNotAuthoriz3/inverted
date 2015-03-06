@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;003&apos;&#x0A;- Original project: &apos;003&apos;&#x0A;- Original element: &apos;003/src/invertedholdings.code.p003&apos;" description="Delete element" element1="/src&lt;invertedholdings.code.p003" element2="/src&lt;invertedholdings.code" element3="/src&lt;invertedholdings" elements="3" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1383428291353" subPackages="false" version="1.0"/>
+</session>

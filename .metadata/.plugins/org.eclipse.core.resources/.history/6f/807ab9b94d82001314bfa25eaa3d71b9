@@ -1,0 +1,27 @@
+package inverted.holdings.code.p005;
+import java.util.Random;
+
+public class matrixSim
+{	
+	public static void main(String[] args)
+	{
+		// TODO Auto-generated method stub
+		Random myRand = new Random(15);
+		
+		char[] randOM;
+		char myChar = (char)  (myRand.nextInt() % 224 + 32);
+		
+		int myInt = (int) Math.random() % 224 + 32;
+		myChar = (char) myInt;
+		
+		System.out.println("myChar is " + myChar + "myInt is " + myInt);
+		myInt = (int) myRand.nextInt() % 224 + 32;
+		myChar = (char) myInt;
+		
+		System.out.println("myChar is " + myChar + "myInt is " + myInt);
+		yInt = (int) myRand.nextInt() % 224 + 32;
+		myChar = (char) myInt;
+		
+		System.out.println("myChar is " + myChar + "myInt is " + myInt);
+	}
+}

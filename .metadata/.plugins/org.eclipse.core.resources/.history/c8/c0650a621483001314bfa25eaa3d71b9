@@ -1,0 +1,26 @@
+package inverted.holdings.code.p005;
+import java.util.Scanner;
+
+public class CallMeClass
+{
+	
+	public static void main()
+	{
+		Scanner in = new Scanner(System.in);
+		boolean b1, vegetable, b3, b4, b5;
+		b1 = false;
+		
+		while(b1 == false)
+		{
+			System.out.println("Is b1 true? (y/n)");
+			if (in.nextLine().equals("y"))
+				b1 = true;
+			else
+				b1 = false;
+		}
+		
+
+		
+	}
+	
+}

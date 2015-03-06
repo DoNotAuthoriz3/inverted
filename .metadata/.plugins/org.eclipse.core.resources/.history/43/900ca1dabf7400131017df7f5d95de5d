@@ -1,0 +1,11 @@
+package inverted.holdings.code.p005;
+
+public class helloWorld
+{
+	
+	public helloWorld()
+	{
+		// TODO Auto-generated constructor stub
+	}
+	
+}

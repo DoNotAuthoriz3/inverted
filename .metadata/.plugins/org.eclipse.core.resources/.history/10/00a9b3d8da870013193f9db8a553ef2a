@@ -1,0 +1,92 @@
+package inverted.holdings.code.p005;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class hangererman
+{	
+	public static void main(String[] args)
+	{
+		String[] answer = new String[15];
+		String[] guesses = new String[26];
+		boolean[] guessedPosition = new boolean[15];
+		
+		Random rng = new Random();
+		Scanner in = new Scanner(System.in);
+		int x = rng.nextInt(3), lCount = 0;
+		boolean solved = false, dead = false, guessedRight = false;
+		
+		if ( 1 > x )
+		{
+			answer[0] = "s";
+			answer[1]  = answer[3] = "e";
+			answer[2] = "r";
+			answer[4] = "i";
+			answer[5] = "n";
+		}
+		else if ( 2 > x )
+		{
+			answer[0] = "f";
+			answer[1] = "r";
+			answer[2] = "a";
+			answer[3] = "u";
+			answer[4] = "d";
+		}
+		else if ( 3 > x )
+		{
+			answer[0] = "p";
+			answer[1] = answer[6] = "s";
+			answer[2] = "u";
+			answer[3] = answer[9] = answer[12] = "e";
+			answer[4] = "d";
+			answer[5] = "o";
+			answer[7] = answer[11] = "c";
+			answer[8] = "i";
+			answer[10] = "n";
+		}
+		
+		for (int i = 0; !answer[i].equals(""); i++, lCount++) { guessedPosition[i] = false; }
+		
+		System.out.print('\n');
+		System.out.println("Welcome to Hangererman. ");
+		
+		while ( !solved && !dead )
+		{		
+			for (int i = 0; !answer[i].equals(""); i++) 
+			{ 
+				if(guessedPosition[i])
+					System.out.print(answer[i]);
+				else
+					System.out.print("_"); 
+			}
+			
+			System.out.print("Letter to guess (no capitals!): ");
+			String letter = in.nextLine();
+			
+			for (int i = 0; i < lCount; i++)
+				if (letter.equals(answer[i]))
+				{
+					guessedPosition[i] = true;
+					guessedRight = true;
+				}
+			
+			if(guessedRight)
+			{
+				solved = true;
+				
+				for (int i = 0; i < lCount; i++)
+					if (false == guessedPosition[i])
+						solved = false;
+			}
+			else
+			{
+				for (int i = 0; (i < guesses.length) && !(guesses[i].equals("")); i++)
+					if (guesses[i].equals(letter))
+						break;
+				
+			}
+		}
+		
+		
+	}	
+}
