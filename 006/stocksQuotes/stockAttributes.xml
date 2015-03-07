@@ -1,26 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StockQuotes>
-	<stock ticker="T">
-		<name>AT&amp;T</name>
+<StockQuoteAttributes>
+	<stockAttribute type="ticker">
 		<tagSequence>
-			<tag>g</tag>
-			<tag>b3</tag>
-			<tag>b2</tag>
-			<tag>h</tag>
-			<tag>v</tag></tagSequence></stock>
-	<stock ticker="DIS">
-		<name>Disney</name>
-		<tagSequence>
-			<tag>g</tag>
-			<tag>b3</tag>
-			<tag>b2</tag>
-			<tag>h</tag>
-			<tag>v</tag></tagSequence></stock>
-	<stock ticker="TWC">
-		<name>Time Warner Cable</name>
-		<tagSequence>
-			<tag>g</tag>
-			<tag>b3</tag>
-			<tag>b2</tag>
-			<tag>h</tag>
-			<tag>v</tag></tagSequence></stock></StockQuotes>
+			<tag>String</tag>
+        </tagSequence>
+    </stockAttribute>
+
+    <stockAttribute type="name">
+        <tagSequence>
+            <tag>String</tag>
+        </tagSequence>
+    </stockAttribute>
+
+    <stockAttribute type="bid">
+        <tagSequence>
+            <tag>Double</tag>
+        </tagSequence>
+
+    </stockAttribute>
+    <stockAttribute type="ask">
+        <tagSequence>
+            <tag>Double</tag>
+        </tagSequence>
+    </stockAttribute>
+
+    <stockAttribute type="volume">
+        <tagSequence>
+            <tag>Long</tag>
+        </tagSequence>
+    </stockAttribute>
+
+</StockQuoteAttributes>

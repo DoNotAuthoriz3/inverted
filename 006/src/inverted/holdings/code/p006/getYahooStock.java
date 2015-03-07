@@ -23,8 +23,8 @@ public class getYahooStock
       String line, baseURL = new String("http://finance.yahoo.com/d/quotes.csv?s=");
       Date newTime;
       Date lastTime = new Date();
-      stockQuoteList quotesToGet = new stockQuoteList();
-      resultsWriter outPutter = new resultsWriter("wesults.csv");
+      StockQuoteList quotesToGet = new StockQuoteList();
+      ResultsWriter outPutter = new ResultsWriter("wesults.csv");
       
       while (true) 
       {
@@ -39,7 +39,7 @@ public class getYahooStock
          {
             try
             {
-               for (stockQuote currQuote = quotesToGet.getNext(); !quotesToGet.fin(); currQuote = quotesToGet.getNext())
+               for (StockQuote currQuote = quotesToGet.getNext(); !quotesToGet.fin(); currQuote = quotesToGet.getNext())
                {
                   try
                   {

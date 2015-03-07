@@ -7,7 +7,9 @@
 			<tag>b3</tag>
 			<tag>b2</tag>
 			<tag>h</tag>
-			<tag>v</tag></tagSequence></stock>
+			<tag>v</tag>
+        </tagSequence>
+    </stock>
 	<stock ticker="DIS">
 		<name>Disney</name>
 		<tagSequence>
@@ -15,7 +17,9 @@
 			<tag>b3</tag>
 			<tag>b2</tag>
 			<tag>h</tag>
-			<tag>v</tag></tagSequence></stock>
+			<tag>v</tag>
+        </tagSequence>
+    </stock>
 	<stock ticker="TWC">
 		<name>Time Warner Cable</name>
 		<tagSequence>
@@ -23,4 +27,7 @@
 			<tag>b3</tag>
 			<tag>b2</tag>
 			<tag>h</tag>
-			<tag>v</tag></tagSequence></stock></StockQuotes>
+			<tag>v</tag>
+        </tagSequence>
+    </stock>
+</StockQuotes>

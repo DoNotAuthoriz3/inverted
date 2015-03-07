@@ -6,7 +6,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -24,8 +23,8 @@ public class ImportCsvStock //implements EquityQuoteImporter
       String line, baseURL = new String("http://finance.yahoo.com/d/quotes.csv?s=");
       Date newTime;
       Date lastTime = new Date();
-      stockQuoteList quotesToGet = new stockQuoteList();
-      resultsWriter outPutter = new resultsWriter("wesults.csv");
+      StockQuoteList quotesToGet = new StockQuoteList();
+      ResultsWriter outPutter = new ResultsWriter("wesults.csv");
       
       while (true) 
       {
@@ -40,7 +39,7 @@ public class ImportCsvStock //implements EquityQuoteImporter
          {
             try
             {
-               for (stockQuote currQuote = quotesToGet.getNext(); !quotesToGet.fin(); currQuote = quotesToGet.getNext())
+               for (StockQuote currQuote = quotesToGet.getNext(); !quotesToGet.fin(); currQuote = quotesToGet.getNext())
                {
                   try
                   {

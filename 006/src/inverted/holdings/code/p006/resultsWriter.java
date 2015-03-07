@@ -12,13 +12,13 @@ package inverted.holdings.code.p006;
  * in a more useful way--whether that's some kind of smarter CSV
  * or another data setup entirely. */
 
-public class resultsWriter
+public class ResultsWriter
 {
 	private String myFile;
 	
-	public resultsWriter() {}
+	public ResultsWriter() {}
 
-	public resultsWriter(String fileName)
+	public ResultsWriter(String fileName)
 		{ myFile = fileName; }
 
 	public void concat(String stockResults) 
@@ -27,5 +27,7 @@ public class resultsWriter
 	public static void concat(String fileName, String stockResults) 
 	{
 		// TODO: some stuff here.
+
+        
 	}
 }

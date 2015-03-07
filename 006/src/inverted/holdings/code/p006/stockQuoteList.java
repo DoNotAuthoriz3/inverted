@@ -13,6 +13,7 @@ package inverted.holdings.code.p006;
 
 import java.io.File;
 import java.lang.Exception;
+import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -22,12 +23,12 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-public class stockQuoteList
+public class StockQuoteList
 {
-	private stockQuote[] myQuotesList;
+	private ArrayList<StockQuote> myQuotesList = new ArrayList<>();
 	private int index;
 	
-	public stockQuoteList()
+	public StockQuoteList()
 	{
 		//	this class does not make sense without
 		//	a file to read from
@@ -35,10 +36,10 @@ public class stockQuoteList
 	}
 
 	// NOTE: this code expects certain universal elements,
-	//	suck as ticker (without which stock data does not 
+	//	such as ticker (without which stock data does not
 	//	make sense), and but also builds the stock data object
 	//	with additional types as available
-	public stockQuoteList(String fileOfQuotesToCheck)
+	public StockQuoteList(String fileOfQuotesToCheck)
 	{
 		index = 0;
 		
@@ -52,21 +53,18 @@ public class stockQuoteList
 			doc.getDocumentElement().normalize();
 			
 			NodeList nlist = doc.getElementsByTagName("stock");
-
-			myQuotesList = new stockQuote[nlist.getLength()];
 			
 			for (int i = 0; i < nlist.getLength(); i++)
 			{
 				Node curElement = nlist.item(i);
-
-				myQuotesList[i] = new stockQuote();
 				
 				if (curElement.getNodeType() == Node.ELEMENT_NODE) 
 				{
 					Element eElement = (Element) curElement;
-					myQuotesList[i].ticker = eElement.getAttribute("ticker");
-					myQuotesList[i].name = eElement.getAttribute("name");
-					myQuotesList[i].lang = eElement.getAttribute("lang");
+					String ticker = eElement.getAttribute("ticker");
+					String name = eElement.getAttribute("name");
+//					String lang = eElement.getAttribute("lang");
+                    myQuotesList.add(new StockQuote(ticker, name));
 					System.out.println(eElement.getAttribute("ticker") + " " 
 							+ eElement.getElementsByTagName("name").item(0).getTextContent() + " - " 
 						/*	+ eElement.getElementsByTagName("lang").item(0).getTextContent()*/);
@@ -77,10 +75,10 @@ public class stockQuoteList
 			{ e.printStackTrace(); }
 	}
 	
-	public stockQuote getNext() throws Exception /* OutOfBoundsException */
+	public StockQuote getNext() throws Exception /* OutOfBoundsException */
 	{ 
 		index++; 
-		if (index > 0 && index <= myQuotesList.length) return myQuotesList[index - 1]; 
+		if (index > 0 && index <= myQuotesList.size()) return myQuotesList.get(index-1);
 		else throw new Exception() /* OutOfBoundsException() */;
 	}
 	
@@ -89,5 +87,5 @@ public class stockQuoteList
 	//	if either index or myQuotesList isn't set/is set to something bad/
 	//	is set to something misleading
 	public boolean fin() { 
-	   return 0 == (index = index > myQuotesList.length ? 0 : index); }	
+	   return 0 == (index = index > myQuotesList.size() ? 0 : index); }
 }

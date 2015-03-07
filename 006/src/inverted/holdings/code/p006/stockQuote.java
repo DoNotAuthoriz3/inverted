@@ -5,33 +5,24 @@ package inverted.holdings.code.p006;
 import java.util.HashMap;
 import java.util.Map;
 
-public class stockQuote implements Quote
+public class StockQuote implements Quote
 {
 	String ticker, name, lang;
     Map<StockAttributeType, StockAttribute> attributes = new HashMap<>();
-	Float ask, bid;
-    Integer vol;
-	
-	public stockQuote()
+
+	public StockQuote(String ticker, String name)
 	{
-		// TODO Auto-generated constructor stub
+		this.ticker = ticker;
+        this.name = name;
 	}
 
     @Override
-    public Object getAttribute(StockAttributeType attr)
-    {
-        switch (attr) {
-            case ASK :
-                return ask;
-            case BID :
-                return bid;
-            case VOLUME :
-                return vol;
-        }
-
-        return null;
-    }
+    public Object getAttribute(StockAttributeType attr){ return attributes.get(attr); }
 
     @Override
-    public void setAttribute(StockAttributeType attr, Object value) { attributes.put(attr, new StockAttribute(attr)); }
+    public void setAttribute(StockAttributeType attr, Object value)
+    {
+        Class type = value.getClass();
+        attributes.put(attr, new StockAttribute<>(attr, value));
+    }
 }

@@ -1,14 +1,10 @@
 package inverted.holdings.code.p006;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 
 public class ImportYahooStock implements EquityQuoteImporter
 {
@@ -17,8 +13,8 @@ public class ImportYahooStock implements EquityQuoteImporter
    URL            url;
    InputStream    is          = null;
    BufferedReader br;
-   stockQuoteList quotesToGet = new stockQuoteList();
-   resultsWriter  outPutter   = new resultsWriter("wesults.csv");
+   StockQuoteList quotesToGet = new StockQuoteList();
+   ResultsWriter outPutter   = new ResultsWriter("wesults.csv");
    
    public ImportYahooStock() { super(); }
    
@@ -50,7 +46,7 @@ public class ImportYahooStock implements EquityQuoteImporter
    @Override
    public Quote getQuote(String ticker, Calendar time)
    {
-      Quote quote = null;
+      Quote quote = new StockQuote(ticker, "");
       
       return quote;
    }
