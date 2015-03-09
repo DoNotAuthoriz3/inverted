@@ -6,32 +6,32 @@
 
     <stockAttribute type="name">
         <type>String</type>
-        <yahoo>n0</yahoo>
+        <yahoo_tag>n0</yahoo_tag>
     </stockAttribute>
 
     <stockAttribute type="bid">
         <type>Double</type>
-        <yahoo>b3</yahoo>
+        <yahoo_tag>b3</yahoo_tag>
     </stockAttribute>
 
     <stockAttribute type="ask">
         <type>Double</type>
-        <yahoo>b2</yahoo>
+        <yahoo_tag>b2</yahoo_tag>
     </stockAttribute>
 
     <stockAttribute type="volume">
         <type>Double</type>
-        <yahoo>v0</yahoo>
+        <yahoo_tag>v0</yahoo_tag>
     </stockAttribute>
 
     <stockAttribute type="daylow">
         <type>Double</type>
-        <yahoo>g0</yahoo>
+        <yahoo_tag>g0</yahoo_tag>
     </stockAttribute>
 
     <stockAttribute type="dayhigh">
         <type>Double</type>
-        <yahoo>h0</yahoo>
+        <yahoo_tag>h0</yahoo_tag>
     </stockAttribute>
 
 </StockQuoteAttributes>

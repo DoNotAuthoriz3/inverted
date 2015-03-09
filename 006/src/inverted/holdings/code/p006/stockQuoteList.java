@@ -59,7 +59,7 @@ public class StockQuoteList
                 {
                     Element e = (Element) curElement;
                     String ticker = e.getAttribute("ticker");
-                    String name = e.getAttribute("name");
+                    String name = e.getElementsByTagName("name").item(0).getTextContent();
                     myQuotesList.add(new Quote(ticker, name));
                     System.out.println(e.getAttribute("ticker") + " "
                                        + e.getElementsByTagName("name").item(0).getTextContent() );
