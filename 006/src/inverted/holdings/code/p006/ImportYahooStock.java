@@ -1,9 +1,6 @@
 package inverted.holdings.code.p006;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -50,9 +47,24 @@ public class ImportYahooStock implements EquityQuoteImporter
 
         return quote;
     }
-    private String urlSuffixBuilder(ArrayList<String> tags)
+
+    /**
+     * This produces the correct URL suffix for the requested tags.  It uses the YahooTagMap singleton to determine
+     * the URL components that correspond to each tag and concatenates them to produce the completed URL suffix.
+     *
+     * If the stockAttributes.xml file cannot be found in the project directory it will throw a FileNotFoundException.
+     * This file is read by the YahooTagMap singleton and allows easy, dynamic correction/revision of the URL
+     * component, should Yahoo's API change.
+     *
+     * @param tags
+     * @return
+     * @throws FileNotFoundException
+     */
+    private String urlSuffixBuilder(ArrayList<String> tags) throws FileNotFoundException
     {
         String suffix = "&f=";
+
+        YahooTagMap tagMap = YahooTagMap.getInstance();
 
         for (String tag : tags)
         {

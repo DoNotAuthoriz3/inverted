@@ -99,8 +99,14 @@ public class YahooTagMap
         }
         catch (FileNotFoundException e)
         {
-            System.out.println("ERROR: Unable to open file " + fileOfQuotesToCheck); throw e;
+            System.out.println("ERROR: Unable to open file " + fileOfQuotesToCheck);
+            throw e;
         }
         catch (Exception e) { e.printStackTrace(); }
+    }
+
+    public String getTag(String name)
+    {
+        return tags.get(name);
     }
 }

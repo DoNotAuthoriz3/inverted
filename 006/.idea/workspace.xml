@@ -57,12 +57,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="YahooTagMap.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="YahooTagMap.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/inverted/holdings/code/p006/YahooTagMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.3488373" vertical-offset="551" max-vertical-offset="1515">
-              <caret line="98" column="9" selection-start-line="98" selection-start-column="9" selection-end-line="98" selection-end-column="9" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="371" max-vertical-offset="1605">
+              <caret line="109" column="30" selection-start-line="109" selection-start-column="30" selection-end-line="109" selection-end-column="30" />
+              <folding>
+                <element signature="e#3518#3519#0" expanded="true" />
+                <element signature="e#3555#3556#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImportYahooStock.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/inverted/holdings/code/p006/ImportYahooStock.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.4096601" vertical-offset="581" max-vertical-offset="1245">
+              <caret line="54" column="118" selection-start-line="54" selection-start-column="118" selection-end-line="54" selection-end-column="118" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -87,10 +102,10 @@
         <option value="$PROJECT_DIR$/src/inverted/holdings/code/p006/ImportCsvStock.java" />
         <option value="$PROJECT_DIR$/src/inverted/holdings/code/p006/EquityQuoteImporter.java" />
         <option value="$PROJECT_DIR$/stocksQuotes/testStocks.xml" />
-        <option value="$PROJECT_DIR$/src/inverted/holdings/code/p006/ImportYahooStock.java" />
         <option value="$PROJECT_DIR$/src/inverted/holdings/code/p006/StockQuoteList.java" />
         <option value="$PROJECT_DIR$/stocksQuotes/stockAttributes.xml" />
         <option value="$PROJECT_DIR$/src/inverted/holdings/code/p006/YahooTagMap.java" />
+        <option value="$PROJECT_DIR$/src/inverted/holdings/code/p006/ImportYahooStock.java" />
       </list>
     </option>
   </component>
@@ -547,12 +562,12 @@
       <created>1425579627660</created>
       <option name="number" value="Default" />
       <updated>1425579627660</updated>
-      <workItem from="1425579636257" duration="34711000" />
+      <workItem from="1425579636257" duration="35268000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34711000" />
+    <option name="totallyTimeSpent" value="35268000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="25" y="61" width="1229" height="966" extended-state="0" />
@@ -635,7 +650,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/inverted/holdings/code/p006/ImportYahooStock.java</url>
-          <line>19</line>
+          <line>16</line>
           <properties />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
@@ -768,16 +783,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/inverted/holdings/code/p006/ImportYahooStock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="506" max-vertical-offset="1065">
-          <caret line="59" column="12" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/inverted/holdings/code/p006/StockAttributeType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.053667262" vertical-offset="0" max-vertical-offset="559">
@@ -822,9 +827,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/inverted/holdings/code/p006/YahooTagMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.3488373" vertical-offset="551" max-vertical-offset="1515">
-          <caret line="98" column="9" selection-start-line="98" selection-start-column="9" selection-end-line="98" selection-end-column="9" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="371" max-vertical-offset="1605">
+          <caret line="109" column="30" selection-start-line="109" selection-start-column="30" selection-end-line="109" selection-end-column="30" />
+          <folding>
+            <element signature="e#3518#3519#0" expanded="true" />
+            <element signature="e#3555#3556#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/inverted/holdings/code/p006/ImportYahooStock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4096601" vertical-offset="581" max-vertical-offset="1245">
+          <caret line="54" column="118" selection-start-line="54" selection-start-column="118" selection-end-line="54" selection-end-column="118" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
