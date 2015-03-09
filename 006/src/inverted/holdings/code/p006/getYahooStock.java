@@ -39,16 +39,15 @@ public class getYahooStock
          {
             try
             {
-               for (StockQuote currQuote = quotesToGet.getNext(); !quotesToGet.fin(); currQuote = quotesToGet.getNext())
+               for (Quote currQuote = quotesToGet.getNext(); !quotesToGet.fin(); currQuote = quotesToGet.getNext())
                {
                   try
                   {
-                     url = new URL(baseURL + currQuote.ticker + "&f=ngb3b2hv");
+                     url = new URL(baseURL + currQuote.get(StockAttributeType.TICKER) + "&f=ngb3b2hv");
                      is = url.openStream(); // throws an IOException
                      br = new BufferedReader(new InputStreamReader(is));
                      
                      while ((line = br.readLine()) != null) {
-                        System.out.println(line);
                         outPutter.concat(line);
                      }
                   } 

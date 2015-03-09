@@ -28,6 +28,6 @@ public class ResultsWriter
 	{
 		// TODO: some stuff here.
 
-        
+        System.out.println(stockResults);
 	}
 }

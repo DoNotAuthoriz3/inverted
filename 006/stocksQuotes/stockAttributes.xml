@@ -1,33 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <StockQuoteAttributes>
-	<stockAttribute type="ticker">
-		<tagSequence>
-			<tag>String</tag>
-        </tagSequence>
+    <stockAttribute type="ticker">
+        <type>String</type>
     </stockAttribute>
 
     <stockAttribute type="name">
-        <tagSequence>
-            <tag>String</tag>
-        </tagSequence>
+        <type>String</type>
+        <yahoo>n0</yahoo>
     </stockAttribute>
 
     <stockAttribute type="bid">
-        <tagSequence>
-            <tag>Double</tag>
-        </tagSequence>
-
+        <type>Double</type>
+        <yahoo>b3</yahoo>
     </stockAttribute>
+
     <stockAttribute type="ask">
-        <tagSequence>
-            <tag>Double</tag>
-        </tagSequence>
+        <type>Double</type>
+        <yahoo>b2</yahoo>
     </stockAttribute>
 
     <stockAttribute type="volume">
-        <tagSequence>
-            <tag>Long</tag>
-        </tagSequence>
+        <type>Double</type>
+        <yahoo>v0</yahoo>
+    </stockAttribute>
+
+    <stockAttribute type="daylow">
+        <type>Double</type>
+        <yahoo>g0</yahoo>
+    </stockAttribute>
+
+    <stockAttribute type="dayhigh">
+        <type>Double</type>
+        <yahoo>h0</yahoo>
     </stockAttribute>
 
 </StockQuoteAttributes>

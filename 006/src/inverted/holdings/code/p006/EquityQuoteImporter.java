@@ -1,6 +1,6 @@
 package inverted.holdings.code.p006;
 
-import java.util.Calendar;
+import java.util.ArrayList;
 
 public interface EquityQuoteImporter
 {
@@ -19,7 +19,5 @@ public interface EquityQuoteImporter
       return newImporter;
    }
    
-   public Quote getQuote(String ticker);
-   
-   public Quote getQuote(String ticker, Calendar time);
+   public Quote getQuote(String ticker, ArrayList<String> tags);
 }
