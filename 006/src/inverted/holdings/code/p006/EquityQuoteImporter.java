@@ -19,5 +19,5 @@ public interface EquityQuoteImporter
       return newImporter;
    }
    
-   public Quote getQuote(String ticker, ArrayList<String> tags);
+   public Quote getQuote(String ticker, ArrayList<StockAttributeType> tags);
 }

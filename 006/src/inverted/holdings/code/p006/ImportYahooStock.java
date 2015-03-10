@@ -12,9 +12,9 @@ public class ImportYahooStock implements EquityQuoteImporter
     public ImportYahooStock() { super(); }
 
     @Override
-    public Quote getQuote(String ticker, ArrayList<String> tags)
+    public Quote getQuote(String ticker, ArrayList<StockAttributeType> tags)
     {
-        Quote quote = null;
+        Quote quote = new Quote(ticker, "unused");
 
         String line;
         URL url;
@@ -26,10 +26,20 @@ public class ImportYahooStock implements EquityQuoteImporter
             url = new URL(baseURL + ticker + urlSuffixBuilder(tags));
             is = url.openStream(); // throws an IOException
             br = new BufferedReader(new InputStreamReader(is));
+            YahooTagMap tagMap = YahooTagMap.getInstance();
+            int i = 0;
 
             while ((line = br.readLine()) != null)
             {
                 System.out.println(line);
+
+                for (String result : line.split(","))
+                {
+//                    Class type = tags.get(i);
+                    tagMap.getTag(tags.get(i));
+                    quote.put(tags.get(i), result);
+                    i++;
+                }
             }
         }
         catch (MalformedURLException mue) { mue.printStackTrace(); }
@@ -51,7 +61,7 @@ public class ImportYahooStock implements EquityQuoteImporter
     /**
      * This produces the correct URL suffix for the requested tags.  It uses the YahooTagMap singleton to determine
      * the URL components that correspond to each tag and concatenates them to produce the completed URL suffix.
-     *
+     * <p>
      * If the stockAttributes.xml file cannot be found in the project directory it will throw a FileNotFoundException.
      * This file is read by the YahooTagMap singleton and allows easy, dynamic correction/revision of the URL
      * component, should Yahoo's API change.
@@ -60,18 +70,17 @@ public class ImportYahooStock implements EquityQuoteImporter
      * @return
      * @throws FileNotFoundException
      */
-    private String urlSuffixBuilder(ArrayList<String> tags) throws FileNotFoundException
+    private String urlSuffixBuilder(ArrayList<StockAttributeType> tags) throws FileNotFoundException
     {
         String suffix = "&f=";
-
         YahooTagMap tagMap = YahooTagMap.getInstance();
 
-        for (String tag : tags)
+        for (StockAttributeType tagName : tags)
         {
             // get yahoo ID for this tag from the Attributes file
-
+            suffix += tagMap.getTag(tagName);
         }
 
-        return suffix; // "ngb3b2hv";
+        return suffix;
     }
 }

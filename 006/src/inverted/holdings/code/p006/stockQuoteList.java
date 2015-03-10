@@ -62,7 +62,7 @@ public class StockQuoteList
                     String name = e.getElementsByTagName("name").item(0).getTextContent();
                     myQuotesList.add(new Quote(ticker, name));
                     System.out.println(e.getAttribute("ticker") + " "
-                                       + e.getElementsByTagName("name").item(0).getTextContent() );
+                                       + e.getElementsByTagName("name").item(0).getTextContent());
                 }
             }
         }

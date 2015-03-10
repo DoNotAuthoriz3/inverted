@@ -26,7 +26,7 @@ import java.util.Map;
 
 public class YahooTagMap
 {
-    private static Map<String, String> tags = new HashMap<>();
+    private static Map<StockAttributeType, Object> tags = new HashMap<>();
     private static YahooTagMap inst;
 
     /**
@@ -90,10 +90,46 @@ public class YahooTagMap
 
                 if (curElement.getNodeType() == Node.ELEMENT_NODE)
                 {
-                    Element e = (Element) curElement;
-                    String name = e.getAttribute("name");
-                    String tag = e.getElementsByTagName("yahoo_tag").item(0).getTextContent();
-                    tags.put(name, tag);
+                    Element element = (Element) curElement;
+                    String type = element.getAttribute("type").toUpperCase();
+                    StockAttributeType name;
+                    try
+                    {
+                        name = StockAttributeType.valueOf(type);
+                    }
+                    catch (IllegalArgumentException e)
+                    {
+                        System.out.println(
+                                "ERROR: Specified tag does not exist in list of enumerated tag types " + type);
+                        throw e;
+                    }
+
+                    NodeList typeList = element.getElementsByTagName("type");
+                    NodeList nodeList = element.getElementsByTagName("yahoo_tag");
+                    String tag;
+                    String dataType;
+                    if (typeList.item(0) != null && nodeList.item(0) != null)
+                    {
+                        dataType = typeList.item(0).getTextContent();
+                        Object datum = Class.forName(dataType).newInstance();
+                        tag = nodeList.item(0).getTextContent();
+
+                        switch (dataType)
+                        {
+                            case "java.lang.Float":
+                                datum = Float.parseFloat(tag);
+                                break;
+                            case "java.lang.Double":
+                                datum = Double.parseDouble(tag);
+                                break;
+                            case "java.lang.Integer":
+                                datum = Integer.parseInt(tag);
+                                break;
+                        }
+
+
+                        tags.put(name, datum);
+                    }
                 }
             }
         }
@@ -105,7 +141,12 @@ public class YahooTagMap
         catch (Exception e) { e.printStackTrace(); }
     }
 
-    public String getTag(String name)
+    public String getTag(StockAttributeType name)
+    {
+        return tags.get(name);
+    }
+
+    public String getTagType(StockAttributeType name)
     {
         return tags.get(name);
     }
