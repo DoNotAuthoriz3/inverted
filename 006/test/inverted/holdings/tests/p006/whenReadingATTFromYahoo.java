@@ -18,7 +18,7 @@ public class whenReadingATTFromYahoo
     {
         tags.add(StockAttributeType.ASK);
         EquityQuoteImporter importer = EquityQuoteImporter.getImporter("yahoo");
-        float ask = (float) importer.getQuote("T", tags).get(StockAttributeType.ASK);
+        float ask = ((Float) importer.getQuote("T", tags).get(StockAttributeType.ASK)).floatValue();
 
         assertTrue("The ask price is out of range (0, 100000): " + ask, ask >= 0 && ask < 100000.0);
     }
@@ -28,7 +28,7 @@ public class whenReadingATTFromYahoo
     {
         tags.add(StockAttributeType.BID);
         EquityQuoteImporter importer = EquityQuoteImporter.getImporter("yahoo");
-        float bid = (float) importer.getQuote("T", tags).get(StockAttributeType.BID);
+        float bid = ((Float) importer.getQuote("T", tags).get(StockAttributeType.BID)).floatValue();
 
         assertTrue("The bid price is out of range (0, 100000): " + bid, bid >= 0 && bid < 100000.0);
     }
@@ -38,7 +38,7 @@ public class whenReadingATTFromYahoo
     {
         tags.add(StockAttributeType.VOLUME);
         EquityQuoteImporter importer = EquityQuoteImporter.getImporter("yahoo");
-        int vol = Math.round((int) importer.getQuote("T", tags).get(StockAttributeType.VOLUME));
+        int vol = Math.round(((Integer) importer.getQuote("T", tags).get(StockAttributeType.VOLUME)).intValue());
 
         assertTrue("The volume price is out of range (0, 100000000): " + vol, vol >= 0 && vol < 10000000.0);
     }

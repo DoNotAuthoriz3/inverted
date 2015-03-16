@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <StockQuoteAttributes>
     <stockAttribute type="ticker">
-        <type>String</type>
+        <type>java.lang.String</type>
     </stockAttribute>
 
     <stockAttribute type="name">
-        <type>String</type>
+        <type>java.lang.String</type>
         <yahoo_tag>n0</yahoo_tag>
     </stockAttribute>
 
     <stockAttribute type="bid">
-        <type>Double</type>
+        <type>java.lang.Double</type>
         <yahoo_tag>b3</yahoo_tag>
     </stockAttribute>
 
     <stockAttribute type="ask">
-        <type>Double</type>
+        <type>java.lang.Double</type>
         <yahoo_tag>b2</yahoo_tag>
     </stockAttribute>
 
     <stockAttribute type="volume">
-        <type>Double</type>
+        <type>java.lang.Double</type>
         <yahoo_tag>v0</yahoo_tag>
     </stockAttribute>
 
     <stockAttribute type="daylow">
-        <type>Double</type>
+        <type>java.lang.Double</type>
         <yahoo_tag>g0</yahoo_tag>
     </stockAttribute>
 
     <stockAttribute type="dayhigh">
-        <type>Double</type>
+        <type>java.lang.Double</type>
         <yahoo_tag>h0</yahoo_tag>
     </stockAttribute>
 

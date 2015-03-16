@@ -111,24 +111,27 @@ public class YahooTagMap
                     if (typeList.item(0) != null && nodeList.item(0) != null)
                     {
                         dataType = typeList.item(0).getTextContent();
-                        Object datum = Class.forName(dataType).newInstance();
+                        Object datum = null;
                         tag = nodeList.item(0).getTextContent();
 
                         switch (dataType)
                         {
-                            case "java.lang.Float":
-                                datum = Float.parseFloat(tag);
-                                break;
                             case "java.lang.Double":
                                 datum = Double.parseDouble(tag);
+                                break;
+                            case "java.lang.String":
+                                datum = tag;
+                                break;
+                            case "java.lang.Float":
+                                datum = Float.parseFloat(tag);
                                 break;
                             case "java.lang.Integer":
                                 datum = Integer.parseInt(tag);
                                 break;
                         }
 
-
-                        tags.put(name, datum);
+                        if (datum != null)
+                            tags.put(name, datum);
                     }
                 }
             }
@@ -141,12 +144,7 @@ public class YahooTagMap
         catch (Exception e) { e.printStackTrace(); }
     }
 
-    public String getTag(StockAttributeType name)
-    {
-        return tags.get(name);
-    }
-
-    public String getTagType(StockAttributeType name)
+    public Object getTag(StockAttributeType name)
     {
         return tags.get(name);
     }
