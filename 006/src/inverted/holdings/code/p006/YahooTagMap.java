@@ -20,14 +20,25 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class YahooTagMap
 {
-    private static Map<StockAttributeType, Object> tags = new HashMap<>();
+    private static Map<StockAttributeType, Attribute> attributes = new HashMap<>();
     private static YahooTagMap inst;
+
+    static class Attribute
+    {
+        String tag;
+        Class type;
+
+        Attribute(String tag, Class type)
+        {
+            this.tag = tag;
+            this.type = type;
+        }
+    }
 
     /**
      * Returns the existing instance, or creates a new one using the default file if no instance exists
@@ -44,7 +55,7 @@ public class YahooTagMap
 
     /**
      * Reloads the tag list using the input file then returns the existing instance.  If no instance exists, creates
-     * a new instance loaded with tags from the input file
+     * a new instance loaded with attributes from the input file
      *
      * @param fileOfQuotesToCheck
      * @return
@@ -60,7 +71,7 @@ public class YahooTagMap
     }
 
     /**
-     * Private constructor enforces the singleton pattern. Loads the instance with the tags specified in the input file.
+     * Private constructor enforces the singleton pattern. Loads the instance with the attributes specified in the input file.
      *
      * @param fileOfQuotesToCheck
      */
@@ -71,7 +82,7 @@ public class YahooTagMap
 
     private static void importTags(String fileOfQuotesToCheck) throws FileNotFoundException
     {
-        tags = new HashMap<>();
+        attributes = new HashMap<>();
 
         try
         {
@@ -91,16 +102,16 @@ public class YahooTagMap
                 if (curElement.getNodeType() == Node.ELEMENT_NODE)
                 {
                     Element element = (Element) curElement;
-                    String type = element.getAttribute("type").toUpperCase();
+                    String attribute = element.getAttribute("name").toUpperCase();
                     StockAttributeType name;
                     try
                     {
-                        name = StockAttributeType.valueOf(type);
+                        name = StockAttributeType.valueOf(attribute);
                     }
                     catch (IllegalArgumentException e)
                     {
                         System.out.println(
-                                "ERROR: Specified tag does not exist in list of enumerated tag types " + type);
+                                "ERROR: Specified tag does not exist in list of enumerated tag types " + attribute);
                         throw e;
                     }
 
@@ -111,27 +122,11 @@ public class YahooTagMap
                     if (typeList.item(0) != null && nodeList.item(0) != null)
                     {
                         dataType = typeList.item(0).getTextContent();
-                        Object datum = null;
+                        Class type = Class.forName(dataType);
                         tag = nodeList.item(0).getTextContent();
 
-                        switch (dataType)
-                        {
-                            case "java.lang.Double":
-                                datum = Double.parseDouble(tag);
-                                break;
-                            case "java.lang.String":
-                                datum = tag;
-                                break;
-                            case "java.lang.Float":
-                                datum = Float.parseFloat(tag);
-                                break;
-                            case "java.lang.Integer":
-                                datum = Integer.parseInt(tag);
-                                break;
-                        }
-
-                        if (datum != null)
-                            tags.put(name, datum);
+                        Attribute attr = new Attribute(tag, type);
+                            attributes.put(name, attr);
                     }
                 }
             }
@@ -144,8 +139,18 @@ public class YahooTagMap
         catch (Exception e) { e.printStackTrace(); }
     }
 
-    public Object getTag(StockAttributeType name)
+    public String getTag(StockAttributeType name)
     {
-        return tags.get(name);
+        return attributes.get(name).tag;
+    }
+
+    public Class getType(StockAttributeType name)
+    {
+        return attributes.get(name).type;
+    }
+
+    public String getTypeName(StockAttributeType name)
+    {
+        return attributes.get(name).type.getName();
     }
 }

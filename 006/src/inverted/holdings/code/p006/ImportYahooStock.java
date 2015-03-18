@@ -11,6 +11,14 @@ public class ImportYahooStock implements EquityQuoteImporter
 
     public ImportYahooStock() { super(); }
 
+    /**
+     * This retrieves a quote for a specific vehicle.  The information retrieved depends on the tag list that is
+     * passed in; the resulting quote contains whatever data is retrieved by polling in the input tags.
+     *
+     * @param ticker
+     * @param tags
+     * @return
+     */
     @Override
     public Quote getQuote(String ticker, ArrayList<StockAttributeType> tags)
     {
@@ -23,32 +31,32 @@ public class ImportYahooStock implements EquityQuoteImporter
 
         try
         {
+            // connect to yahoo and download the data
             url = new URL(baseURL + ticker + urlSuffixBuilder(tags));
             is = url.openStream(); // throws an IOException
             br = new BufferedReader(new InputStreamReader(is));
-            YahooTagMap tagMap = YahooTagMap.getInstance();
-            int i = 0;
 
+            // parse the resulting data and store it in a Quote.
             while ((line = br.readLine()) != null)
             {
+                int i = 0;
                 System.out.println(line);
 
                 for (String result : line.split(","))
                 {
-//                    Class type = tags.get(i);
-                    tagMap.getTag(tags.get(i));
-                    quote.put(tags.get(i), result);
+                    quote.insert(tags.get(i), result);
                     i++;
                 }
             }
         }
-        catch (MalformedURLException mue) { mue.printStackTrace(); }
+        catch (MalformedURLException mue) { mue.printStackTrace(); quote = null; }
         catch (IOException ioe)
         {
             System.out.println("Unable to connect to the website");
             ioe.printStackTrace();
+            quote = null;
         }
-        catch (Exception e) { e.printStackTrace(); }
+        catch (Exception e) { e.printStackTrace(); quote = null; }
         finally
         {
             try { if (is != null) is.close(); }
