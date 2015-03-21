@@ -20,8 +20,8 @@
     </stockAttribute>
 
     <stockAttribute name="volume">
-        <type>java.lang.Double</type>
-        <yahoo_tag>v0</yahoo_tag>
+        <type>java.lang.Long</type>
+        <yahoo_tag>v</yahoo_tag>
     </stockAttribute>
 
     <stockAttribute name="daylow">

@@ -33,7 +33,7 @@ public class Quote extends HashMap
      */
     private Quote() {}
 
-    public void insert(StockAttributeType type, String tag) throws FileNotFoundException
+    public void insert(StockAttributeType type, String yResponse) throws FileNotFoundException
     {
         Object datum = null;
         try
@@ -42,28 +42,28 @@ public class Quote extends HashMap
 
             switch (dataType)
             {
-                case "java.lang.Double":
-                    datum = Double.parseDouble(tag);
-                    break;
                 case "java.lang.String":
-                    datum = tag;
+                    datum = yResponse;
+                    break;
+                case "java.lang.Double":
+                    datum = Double.parseDouble(yResponse);
                     break;
                 case "java.lang.Float":
-                    datum = Float.parseFloat(tag);
+                    datum = Float.parseFloat(yResponse);
                     break;
-                case "java.lang.Integer":
-                    datum = Integer.parseInt(tag);
+                case "java.lang.Long":
+                    datum = Long.parseLong(yResponse);
                     break;
             }
         }
         catch (NumberFormatException e)
         {
-            System.out.println("ERROR: response contained " + tag + " for " + type);
+            System.out.println("ERROR: response contained " + yResponse + " for " + type);
         }
         catch (IllegalArgumentException e)
         {
             System.out.println(
-                    "ERROR: Specified tag does not exist in list of enumerated tag types " + type);
+                    "ERROR: Specified yResponse does not exist in list of enumerated yResponse types " + type);
             throw e;
         }
         catch (FileNotFoundException e)
