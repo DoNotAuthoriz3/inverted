@@ -8,7 +8,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Calendar;
 import java.util.Date;
-import static inverted.holdings.code.p006.Jout.joutln;
+import static inverted.holdings.code.p006.util.Jout.joutln;
 
 public class getYahooStock
 {
@@ -17,7 +17,6 @@ public class getYahooStock
    @SuppressWarnings("deprecation")
    public static void main(String[] args) 
    {
-      Jout j = new Jout();
       URL url;
       InputStream is = null;
       BufferedReader br;
@@ -54,7 +53,7 @@ public class getYahooStock
                   catch (MalformedURLException mue) { mue.printStackTrace(); } 
                   catch (IOException ioe)
                   {
-                     j.outln("Unable to connect to the website");
+                     joutln("Unable to connect to the website");
                      ioe.printStackTrace();
                   } 
                   catch (Exception e) { e.printStackTrace(); } 
@@ -71,7 +70,7 @@ public class getYahooStock
          try { Thread.sleep(300); } 
          catch (Exception e) 
          {
-            j.outln("Thread underwent insomnia: ");
+            joutln("Thread underwent insomnia: ");
             e.printStackTrace();
          };
       }

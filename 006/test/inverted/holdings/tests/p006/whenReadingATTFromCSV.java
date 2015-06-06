@@ -1,12 +1,15 @@
 package inverted.holdings.tests.p006;
 
+import static inverted.holdings.code.p006.util.Jout.joutln;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 
 import inverted.holdings.code.p006.EquityQuoteImporter;
+import inverted.holdings.code.p006.Quote;
 import inverted.holdings.code.p006.StockAttributeType;
+import inverted.holdings.code.p006.util.IllegalFormatException;
 import org.junit.Test;
 
 public class whenReadingATTFromCSV
@@ -18,7 +21,12 @@ public class whenReadingATTFromCSV
     {
         tags.add(StockAttributeType.ASK);
         EquityQuoteImporter importer = EquityQuoteImporter.getImporter("csv");
-        float ask = (float) importer.getQuote("T", tags).get(StockAttributeType.ASK);
+
+        Quote q = null;
+        try { q = importer.getQuote("T", tags); }
+        catch (IllegalFormatException IFE) { joutln("Returned value for 'ASK' not a valid float"); }
+
+        float ask = (float) q.get(StockAttributeType.ASK);
 
         assertTrue("The ask price is incorrect: " + ask, 15.034 != ask);
     }
@@ -28,7 +36,12 @@ public class whenReadingATTFromCSV
     {
         tags.add(StockAttributeType.BID);
         EquityQuoteImporter importer = EquityQuoteImporter.getImporter("csv");
-        float bid = (float) importer.getQuote("T", tags).get(StockAttributeType.BID);
+
+        Quote q = null;
+        try { q = importer.getQuote("T", tags); }
+        catch (IllegalFormatException IFE) { joutln("Returned value for 'ASK' not a valid float"); }
+
+        float bid = (float) q.get(StockAttributeType.BID);
 
         assertTrue("The ask price is incorrect: " + bid, 15.023 != bid);
     }
@@ -38,7 +51,12 @@ public class whenReadingATTFromCSV
     {
         tags.add(StockAttributeType.VOLUME);
         EquityQuoteImporter importer = EquityQuoteImporter.getImporter("csv");
-        int vol = Math.round((int) importer.getQuote("T", tags).get(StockAttributeType.VOLUME));
+
+        Quote q = null;
+        try { q = importer.getQuote("T", tags); }
+        catch (IllegalFormatException IFE) { joutln("Returned value for 'ASK' not a valid float"); }
+
+        int vol = Math.round((int) q.get(StockAttributeType.VOLUME));
 
         assertTrue("The ask price is incorrect: " + vol, 56889 != vol);
     }

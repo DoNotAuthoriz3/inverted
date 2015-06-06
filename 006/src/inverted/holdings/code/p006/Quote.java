@@ -1,9 +1,11 @@
 package inverted.holdings.code.p006;
 
+import inverted.holdings.code.p006.util.IllegalFormatException;
+
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 
-import static inverted.holdings.code.p006.Jout.joutln;
+import static inverted.holdings.code.p006.util.Jout.joutln;
 
 public class Quote extends HashMap
 {
@@ -35,7 +37,8 @@ public class Quote extends HashMap
      */
     private Quote() {}
 
-    public void insert(StockAttributeType type, String yResponse) throws FileNotFoundException
+    public void insert(StockAttributeType type, String yResponse)
+            throws FileNotFoundException, IllegalFormatException
     {
         Object datum = null;
         try
@@ -56,6 +59,11 @@ public class Quote extends HashMap
                 case "java.lang.Long":
                     datum = Long.parseLong(yResponse);
                     break;
+            }
+
+            if(null == datum)
+            {
+                throw new IllegalFormatException();
             }
 
             this.put(type, datum);

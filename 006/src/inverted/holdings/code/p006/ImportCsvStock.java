@@ -9,7 +9,7 @@ import java.net.URL;
 import java.util.Calendar;
 import java.util.Date;
 
-import static inverted.holdings.code.p006.Jout.joutln;
+import static inverted.holdings.code.p006.util.Jout.joutln;
 
 public class ImportCsvStock //implements EquityQuoteImporter
 {

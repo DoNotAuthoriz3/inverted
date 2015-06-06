@@ -1,4 +1,4 @@
-package inverted.holdings.code.p006;
+package inverted.holdings.code.p006.util;
 
 public class Jout
 {	

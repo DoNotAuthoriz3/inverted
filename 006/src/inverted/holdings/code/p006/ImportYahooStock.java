@@ -1,9 +1,13 @@
 package inverted.holdings.code.p006;
 
+import inverted.holdings.code.p006.util.IllegalFormatException;
+
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
+import java.util.List;
+
+import static inverted.holdings.code.p006.util.Jout.joutln;
 
 public class ImportYahooStock implements EquityQuoteImporter
 {
@@ -20,7 +24,7 @@ public class ImportYahooStock implements EquityQuoteImporter
      * @return
      */
     @Override
-    public Quote getQuote(String ticker, ArrayList<StockAttributeType> tags)
+    public Quote getQuote(String ticker, List<StockAttributeType> tags) throws IllegalFormatException
     {
         Quote quote = new Quote(ticker, "unused");
 
@@ -40,7 +44,7 @@ public class ImportYahooStock implements EquityQuoteImporter
             while ((line = br.readLine()) != null)
             {
                 int i = 0;
-                System.out.println(line);
+                joutln(line);
 
                 for (String result : line.split(","))
                 {
@@ -52,18 +56,80 @@ public class ImportYahooStock implements EquityQuoteImporter
         catch (MalformedURLException mue) { mue.printStackTrace(); quote = null; }
         catch (IOException ioe)
         {
-            System.out.println("Unable to connect to the website");
+            joutln("Unable to connect to the website");
             ioe.printStackTrace();
             quote = null;
         }
-        catch (Exception e) { e.printStackTrace(); quote = null; }
         finally
         {
             try { if (is != null) is.close(); }
-            catch (IOException ioe) { System.out.println("unhandled exception"); }
+            catch (IOException ioe) { joutln("unhandled exception"); }
         }
 
         return quote;
+    }
+
+    // TODO: Make sure initializing the arraylist with the size then doing adds does what I thinks it does.
+    @Override
+    public List<Quote> getQuotes(StockQuoteList quotes, List<StockAttributeType> tags)
+            throws IllegalFormatException
+    {
+        String urlBuilder = baseURL;
+        List<String> tickers = quotes.getTickers();
+
+        for (String t : tickers)
+        {
+            urlBuilder = urlBuilder + t;
+        }
+
+        return retrieve(quotes, tags, urlBuilder);
+    }
+
+    private List<Quote> retrieve(List quotes, List<StockAttributeType> tags, String urlBuilder)
+            throws IllegalFormatException
+    {URL url;
+        InputStream is = null;
+
+        try
+        {
+            BufferedReader br;
+            String line;
+
+            // connect to yahoo and download the data
+            url = new URL(urlBuilder + urlSuffixBuilder(tags));
+            is = url.openStream(); // throws an IOException
+            br = new BufferedReader(new InputStreamReader(is));
+            int i = 0;
+
+            // parse the resulting data and store it in a Quote.
+            while ((line = br.readLine()) != null)
+            {
+                int j = 0;
+                joutln(line);
+
+                for (String result : line.split(","))
+                {
+                    ((Quote) quotes.get(i)).insert(tags.get(j), result);
+                    j++;
+                }
+
+                i++;
+            }
+        }
+        catch (MalformedURLException mue) { mue.printStackTrace(); quotes = null; }
+        catch (IOException ioe)
+        {
+            joutln("Unable to connect to the website");
+            ioe.printStackTrace();
+            quotes = null;
+        }
+        finally
+        {
+            try { if (is != null) is.close(); }
+            catch (IOException ioe) { joutln("unhandled IOException"); }
+        }
+
+        return quotes;
     }
 
     /**
@@ -78,7 +144,7 @@ public class ImportYahooStock implements EquityQuoteImporter
      * @return
      * @throws FileNotFoundException
      */
-    private String urlSuffixBuilder(ArrayList<StockAttributeType> tags) throws FileNotFoundException
+    private String urlSuffixBuilder(List<StockAttributeType> tags) throws FileNotFoundException
     {
         String suffix = "&f=";
         YahooTagMap tagMap = YahooTagMap.getInstance();

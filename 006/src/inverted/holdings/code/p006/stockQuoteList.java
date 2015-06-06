@@ -24,8 +24,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import static inverted.holdings.code.p006.Jout.joutln;
-
 public class StockQuoteList extends ArrayList
 {
     private int index;
@@ -81,9 +79,28 @@ public class StockQuoteList extends ArrayList
     public List<String> getTickers()
     {
         List tickers = new ArrayList<String>();
-        for ( Quote q : (Quote[]) this.toArray() ) { tickers.add(q); }
+        // Must iterate the for loop over an array of objects, because Java will not let us cast an Object[]
+        for ( Object q : this.toArray() ) { tickers.add(((Quote) q).get(StockAttributeType.TICKER)); }
 
         return tickers;
+    }
+
+    public List<String> getAllQuotes()
+    {
+        List tickers = new ArrayList<String>();
+        // Must iterate the for loop over an array of objects, because Java will not let us cast an Object[]
+        for ( Object q : this.toArray() ) { tickers.add((Quote) q); }
+
+        return tickers;
+    }
+
+    public Quote getQuote(String ticker)
+    {
+        // Must iterate the for loop over an array of objects, because Java will not let us cast an Object[]
+        for ( Object q : this.toArray() )
+            if( ((Quote) q).get(StockAttributeType.TICKER).equals(ticker)) return (Quote) q;
+
+        return null;
     }
 
     // This is a dumb method.

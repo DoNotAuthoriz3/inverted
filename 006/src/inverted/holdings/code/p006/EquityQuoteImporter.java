@@ -1,5 +1,7 @@
 package inverted.holdings.code.p006;
 
+import inverted.holdings.code.p006.util.IllegalFormatException;
+
 import java.util.List;
 
 public interface EquityQuoteImporter
@@ -19,7 +21,8 @@ public interface EquityQuoteImporter
         return newImporter;
     }
 
-    public Quote getQuote(String ticker, List<StockAttributeType> tags);
+    public Quote getQuote(String ticker, List<StockAttributeType> tags) throws IllegalFormatException;
 
-    public List<Quote> getQuotes(List<String> ticker, List<StockAttributeType> tags);
+    public List<Quote> getQuotes(StockQuoteList quotes, List<StockAttributeType> tags)
+            throws IllegalFormatException;
 }
