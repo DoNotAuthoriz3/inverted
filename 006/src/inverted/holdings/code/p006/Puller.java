@@ -24,7 +24,6 @@ public class Puller
     @SuppressWarnings("deprecation")
     public static void pull()
     {
-        Jout j = new Jout();
         InputStream is = null;
         Date newTime;
         Date lastTime = new Date();
@@ -50,7 +49,7 @@ public class Puller
             {
                 try
                 {
-                    for (String ticker : getTickers("stocksQuotes/testStocks.xml"))
+                    for (String ticker : quotesToGet.getTickers() )//getTickers("stocksQuotes/testStocks.xml"))
                     {
                         try
                         {
@@ -71,47 +70,9 @@ public class Puller
             try { Thread.sleep(300); }
             catch (Exception e)
             {
-                j.outln("Thread underwent insomnia: ");
+                joutln("Thread underwent insomnia: ");
                 e.printStackTrace();
             }
         }
-    }
-
-    private static List<String> getTickers(String fromFile)
-    {
-        List tickers = new ArrayList<String>();
-
-        File projectList = new File(fromFile);
-        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-        Document doc;
-
-        try
-        {
-            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            doc = dBuilder.parse(projectList);
-        }
-        catch (Exception e)
-        {
-            joutln("Error: unable to open the stock file list: " + e);
-            return null;
-        }
-
-        //	document must be valid XML described by #insertSchemaHere
-        doc.getDocumentElement().normalize();
-
-        NodeList nlist = doc.getElementsByTagName("stock");
-
-        for (int i = 0; i < nlist.getLength(); i++)
-        {
-            Node curElement = nlist.item(i);
-
-            if (curElement.getNodeType() == Node.ELEMENT_NODE)
-            {
-                Element e = (Element) curElement;
-                String ticker = e.getAttribute("ticker");
-            }
-        }
-
-        return tickers;
     }
 }

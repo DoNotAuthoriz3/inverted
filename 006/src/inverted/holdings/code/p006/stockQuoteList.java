@@ -14,6 +14,7 @@ package inverted.holdings.code.p006;
 import java.io.File;
 import java.lang.Exception;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -23,9 +24,10 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-public class StockQuoteList
+import static inverted.holdings.code.p006.Jout.joutln;
+
+public class StockQuoteList extends ArrayList
 {
-    private ArrayList<Quote> myQuotesList = new ArrayList<>();
     private int index;
 
     public StockQuoteList()
@@ -60,7 +62,7 @@ public class StockQuoteList
                     Element e = (Element) curElement;
                     String ticker = e.getAttribute("ticker");
                     String name = e.getElementsByTagName("name").item(0).getTextContent();
-                    myQuotesList.add(new Quote(ticker, name));
+                    this.add(new Quote(ticker, name));
                     System.out.println(e.getAttribute("ticker") + " "
                                        + e.getElementsByTagName("name").item(0).getTextContent());
                 }
@@ -72,8 +74,16 @@ public class StockQuoteList
     public Quote getNext() throws Exception /* OutOfBoundsException */
     {
         index++;
-        if (index > 0 && index <= myQuotesList.size()) return myQuotesList.get(index - 1);
+        if (index > 0 && index <= this.size()) return (Quote) get(index - 1);
         else throw new Exception() /* OutOfBoundsException() */;
+    }
+
+    public List<String> getTickers()
+    {
+        List tickers = new ArrayList<String>();
+        for ( Quote q : (Quote[]) this.toArray() ) { tickers.add(q); }
+
+        return tickers;
     }
 
     // This is a dumb method.
@@ -81,6 +91,6 @@ public class StockQuoteList
     // something bad/is set to something misleading
     public boolean fin()
     {
-        return 0 == (index = index > myQuotesList.size() ? 0 : index);
+        return 0 == (index = index > this.size() ? 0 : index);
     }
 }
