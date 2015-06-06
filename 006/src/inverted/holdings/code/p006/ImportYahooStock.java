@@ -79,7 +79,7 @@ public class ImportYahooStock implements EquityQuoteImporter
 
         for (String t : tickers)
         {
-            urlBuilder = urlBuilder + t;
+            urlBuilder = urlBuilder + t + ",";
         }
 
         return retrieve(quotes, tags, urlBuilder);
