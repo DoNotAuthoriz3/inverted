@@ -3,10 +3,12 @@ package inverted.holdings.code.p006;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 
+import static inverted.holdings.code.p006.Jout.joutln;
+
 public class Quote extends HashMap
 {
     /**
-     * All vehicles have a ticker.
+     * All vehicles have a ticker. It's nice if they have a name too, but I guess we can let that slide.
      *
      * @param ticker
      */
@@ -16,8 +18,8 @@ public class Quote extends HashMap
     }
 
     /**
-     * All vehicles have a ticker, and optionally a name to describe. The name isn't actually strictly necessary for coding
-     * and takes up space, so it may be best not to store it.
+     * All vehicles have a ticker, and optionally a name to describe. The name isn't actually strictly necessary for
+     * coding and takes up space, so it may be best not to store it.
      *
      * @param ticker
      * @param name
@@ -60,18 +62,17 @@ public class Quote extends HashMap
         }
         catch (NumberFormatException e)
         {
-            System.out.println("ERROR: response contained " + yResponse + " for " + type);
+            joutln("ERROR: response contained " + yResponse + " for " + type);
         }
         catch (IllegalArgumentException e)
         {
-            System.out.println(
-                    "ERROR: Specified yResponse does not exist in list of enumerated yResponse types " + type);
+            joutln
+                    ("ERROR: Specified yResponse does not exist in list of enumerated yResponse types " + type);
             throw e;
         }
         catch (FileNotFoundException e)
         {
-            System.out.println(
-                    "ERROR: Unable to open the stock attributes definition file " + type);
+            joutln("ERROR: Unable to open the stock attributes definition file " + type);
             throw e;
         }
     }
