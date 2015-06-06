@@ -55,6 +55,8 @@ public class Quote extends HashMap
                     datum = Long.parseLong(yResponse);
                     break;
             }
+
+            this.put(type, datum);
         }
         catch (NumberFormatException e)
         {
@@ -71,10 +73,6 @@ public class Quote extends HashMap
             System.out.println(
                     "ERROR: Unable to open the stock attributes definition file " + type);
             throw e;
-        }
-        finally
-        {
-            this.put(type, datum);
         }
     }
 }
