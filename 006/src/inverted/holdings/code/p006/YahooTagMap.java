@@ -117,8 +117,10 @@ public class YahooTagMap
 
                     NodeList typeList = element.getElementsByTagName("type");
                     NodeList nodeList = element.getElementsByTagName("yahoo_tag");
+
                     String tag;
                     String dataType;
+
                     if (typeList.item(0) != null && nodeList.item(0) != null)
                     {
                         dataType = typeList.item(0).getTextContent();

@@ -8,6 +8,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Calendar;
 import java.util.Date;
+import static inverted.holdings.code.p006.Jout.joutln;
 
 public class getYahooStock
 {
@@ -16,7 +17,7 @@ public class getYahooStock
    @SuppressWarnings("deprecation")
    public static void main(String[] args) 
    {
-      jout j = new jout();
+      Jout j = new Jout();
       URL url;
       InputStream is = null;
       BufferedReader br;
@@ -24,7 +25,6 @@ public class getYahooStock
       Date newTime;
       Date lastTime = new Date();
       StockQuoteList quotesToGet = new StockQuoteList();
-      ResultsWriter outPutter = new ResultsWriter("wesults.csv");
       
       while (true) 
       {
@@ -48,7 +48,7 @@ public class getYahooStock
                      br = new BufferedReader(new InputStreamReader(is));
                      
                      while ((line = br.readLine()) != null) {
-                        outPutter.concat(line);
+                        joutln(line);
                      }
                   } 
                   catch (MalformedURLException mue) { mue.printStackTrace(); } 

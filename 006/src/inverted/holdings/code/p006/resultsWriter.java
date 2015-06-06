@@ -12,22 +12,8 @@ package inverted.holdings.code.p006;
  * in a more useful way--whether that's some kind of smarter CSV
  * or another data setup entirely. */
 
-public class ResultsWriter
+public interface ResultsWriter
 {
-	private String myFile;
-	
-	public ResultsWriter() {}
-
-	public ResultsWriter(String fileName)
-		{ myFile = fileName; }
-
-	public void concat(String stockResults) 
-		{ concat(myFile, stockResults); }
-	
-	public static void concat(String fileName, String stockResults) 
-	{
-		// TODO: some stuff here.
-
-        System.out.println(stockResults);
-	}
+    // This will add whatever
+    public void writeQuote(Quote quote);
 }

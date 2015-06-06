@@ -16,7 +16,7 @@ public class ImportCsvStock //implements EquityQuoteImporter
 
     public static void main(String[] args)
     {
-        jout j = new jout();
+        Jout j = new Jout();
         URL url;
         InputStream is = null;
         BufferedReader br;
@@ -24,7 +24,7 @@ public class ImportCsvStock //implements EquityQuoteImporter
         Date newTime;
         Date lastTime = new Date();
         StockQuoteList quotesToGet = new StockQuoteList();
-        ResultsWriter outPutter = new ResultsWriter("wesults.csv");
+//        ResultsWriter outPutter = new ResultsWriter("wesults.csv");
 
         while (true)
         {
@@ -32,8 +32,9 @@ public class ImportCsvStock //implements EquityQuoteImporter
             lastTime = (newTime.getSeconds() == lastTime.getSeconds()) ? lastTime : newTime;
 
             // lastTime = Calendar.getInstance().getTime();
-            System.out.println("Second is " + lastTime.getSeconds() + " and second mod 5 is "
-                               + (lastTime.getSeconds() % 5) + " and 0 == second mod five is " + (0 == (lastTime.getSeconds() % 5)));
+            System.out.println(
+                    "Second is " + lastTime.getSeconds() + " and second mod 5 is " + (lastTime.getSeconds() % 5) + " " +
+                    "" + "and 0 == second mod five is " + (0 == (lastTime.getSeconds() % 5)));
 
             if (0 == (lastTime.getSeconds() % 5))
             {
@@ -50,7 +51,6 @@ public class ImportCsvStock //implements EquityQuoteImporter
                             while ((line = br.readLine()) != null)
                             {
                                 System.out.println(line);
-                                outPutter.concat(line);
                             }
                         }
                         catch (MalformedURLException mue) { mue.printStackTrace(); }

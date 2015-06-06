@@ -9,7 +9,7 @@ package inverted.holdings.code.p006;
  *  Although a constructor and methods are provided
  *  for actual coders. */
 
-public class jout
+public class Jout
 {	
 	public final static void jout(String arg) 
 		{ System.out.print(arg); }
@@ -19,7 +19,7 @@ public class jout
 	
 	/* Because only I am idiotic enough to extend this class.  
 	 * It bothers me that it can't be final :P */
-	public jout() {}
+	public Jout() {}
 	
 	public final void out(String arg) 
 		{ System.out.print(arg); }
