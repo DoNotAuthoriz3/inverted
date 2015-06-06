@@ -21,17 +21,15 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
-import java.util.Map;
 
-public class YahooTagMap
+public class YahooTagMap extends HashMap<StockAttributeType, YahooTagMap.Attribute>
 {
-    private static Map<StockAttributeType, Attribute> attributes = new HashMap<>();
     private static YahooTagMap inst;
 
     static class Attribute
     {
         String tag;
-        Class type;
+        Class  type;
 
         Attribute(String tag, Class type)
         {
@@ -62,28 +60,34 @@ public class YahooTagMap
      */
     public static YahooTagMap getInstance(String fileOfQuotesToCheck) throws FileNotFoundException
     {
-        if (inst == null)
-            inst = new YahooTagMap(fileOfQuotesToCheck);
-        else
-            importTags(fileOfQuotesToCheck);
-
+        inst = new YahooTagMap(fileOfQuotesToCheck);
         return inst;
     }
 
     /**
-     * Private constructor enforces the singleton pattern. Loads the instance with the attributes specified in the input file.
+     * Private constructor enforces the singleton pattern.
+     *
+     * @throws NoClassDefFoundError
+     */
+    private YahooTagMap() throws NoClassDefFoundError
+    {
+        throw new NoClassDefFoundError();
+    }
+
+    /**
+     * Private constructor enforces the singleton pattern. Loads the instance with the attributes specified in the
+     * input file.
      *
      * @param fileOfQuotesToCheck
      */
     private YahooTagMap(String fileOfQuotesToCheck) throws FileNotFoundException
     {
+        super();
         importTags(fileOfQuotesToCheck);
     }
 
-    private static void importTags(String fileOfQuotesToCheck) throws FileNotFoundException
+    private void importTags(String fileOfQuotesToCheck) throws FileNotFoundException
     {
-        attributes = new HashMap<>();
-
         try
         {
             File projectList = new File(fileOfQuotesToCheck);
@@ -128,7 +132,7 @@ public class YahooTagMap
                         tag = nodeList.item(0).getTextContent();
 
                         Attribute attr = new Attribute(tag, type);
-                            attributes.put(name, attr);
+                        super.put(name, attr);
                     }
                 }
             }
@@ -143,16 +147,16 @@ public class YahooTagMap
 
     public String getTag(StockAttributeType name)
     {
-        return attributes.get(name).tag;
+        return this.get(name).tag;
     }
 
     public Class getType(StockAttributeType name)
     {
-        return attributes.get(name).type;
+        return this.get(name).type;
     }
 
     public String getTypeName(StockAttributeType name)
     {
-        return attributes.get(name).type.getName();
+        return this.get(name).type.getName();
     }
 }
