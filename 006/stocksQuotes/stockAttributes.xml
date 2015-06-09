@@ -24,14 +24,29 @@
         <yahoo_tag>v</yahoo_tag>
     </stockAttribute>
 
-    <stockAttribute name="daylow">
+    <stockAttribute name="day_low">
         <type>java.lang.Double</type>
         <yahoo_tag>g0</yahoo_tag>
     </stockAttribute>
 
-    <stockAttribute name="dayhigh">
+    <stockAttribute name="day_high">
         <type>java.lang.Double</type>
         <yahoo_tag>h0</yahoo_tag>
+    </stockAttribute>
+
+    <stockAttribute name="last_trade_time">
+        <type>java.lang.Double</type>
+        <yahoo_tag>t1</yahoo_tag>
+    </stockAttribute>
+
+    <stockAttribute name="last_trade_date">
+        <type>java.util.Date</type>
+        <yahoo_tag>d1</yahoo_tag>
+    </stockAttribute>
+
+    <stockAttribute name="last_trade_size">
+        <type>java.util.Date</type>
+        <yahoo_tag>k3</yahoo_tag>
     </stockAttribute>
 
 </StockQuoteAttributes>

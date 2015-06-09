@@ -3,12 +3,23 @@ package inverted.holdings.code.p006;
 import inverted.holdings.code.p006.util.IllegalFormatException;
 
 import java.io.FileNotFoundException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 
 import static inverted.holdings.code.p006.util.Jout.joutln;
 
 public class Quote extends HashMap
 {
+    private static DateFormat dateFormat = null;
+
+    public static void setDateFormat(DateFormat df)
+    {
+        dateFormat = df;
+    }
+
     /**
      * All vehicles have a ticker. It's nice if they have a name too, but I guess we can let that slide.
      *
@@ -59,9 +70,23 @@ public class Quote extends HashMap
                 case "java.lang.Long":
                     datum = Long.parseLong(yResponse);
                     break;
+                case "java.util.Date":
+                    Date d = null;
+
+                    try
+                    {
+                        d = dateFormat.parse(yResponse);
+                    }
+                    catch (ParseException e)
+                    {
+                        e.printStackTrace();
+                    }
+
+                    datum = d;
+                    break;
             }
 
-            if(null == datum)
+            if (null == datum)
             {
                 throw new IllegalFormatException();
             }

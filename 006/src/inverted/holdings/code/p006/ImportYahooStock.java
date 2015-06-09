@@ -5,6 +5,9 @@ import inverted.holdings.code.p006.util.IllegalFormatException;
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import static inverted.holdings.code.p006.util.Jout.joutln;
@@ -12,6 +15,9 @@ import static inverted.holdings.code.p006.util.Jout.joutln;
 public class ImportYahooStock implements EquityQuoteImporter
 {
     String baseURL = new String("http://finance.yahoo.com/d/quotes.csv?s=");
+
+    private static DateFormat dayf  = new SimpleDateFormat("M/d/yyyy");
+    private static DateFormat timef = new SimpleDateFormat("h:mma");
 
     public ImportYahooStock() { super(); }
 
@@ -87,7 +93,8 @@ public class ImportYahooStock implements EquityQuoteImporter
 
     private List<Quote> retrieve(List quotes, List<StockAttributeType> tags, String urlBuilder)
             throws IllegalFormatException
-    {URL url;
+    {
+        URL url;
         InputStream is = null;
 
         try
@@ -107,9 +114,34 @@ public class ImportYahooStock implements EquityQuoteImporter
                 int j = 0;
                 joutln(line);
 
+                String date = "";
+                String time = "";
                 for (String result : line.split(","))
                 {
-                    ((Quote) quotes.get(i)).insert(tags.get(j), result);
+                    StockAttributeType type = tags.get(j);
+
+                    if (StockAttributeType.TIME == type && date.equals(""))
+                    {
+                        result = result.replace("\"", "");
+                        date = result;
+
+                        j--;
+                    }
+                    else if (StockAttributeType.TIME == type)
+                    {
+                        Quote.setDateFormat(new SimpleDateFormat("M/d/yyyy h:mma"));
+
+                        result = result.replace("\"", "");
+                        time = result;
+
+                        if (!date.equals(""))
+                            ((Quote) quotes.get(i)).insert(type, date  + " " + time);
+                    }
+                    else
+                    {
+                        ((Quote) quotes.get(i)).insert(type, result);
+                    }
+
                     j++;
                 }
 

@@ -147,6 +147,11 @@ public class YahooTagMap extends HashMap<StockAttributeType, YahooTagMap.Attribu
 
     public String getTag(StockAttributeType name)
     {
+        if (StockAttributeType.TIME == name)
+        {
+            return this.get(StockAttributeType.LAST_TRADE_DATE).tag + this.get(StockAttributeType.LAST_TRADE_TIME).tag;
+        }
+
         return this.get(name).tag;
     }
 
@@ -157,6 +162,11 @@ public class YahooTagMap extends HashMap<StockAttributeType, YahooTagMap.Attribu
 
     public String getTypeName(StockAttributeType name)
     {
+        if (StockAttributeType.TIME == name)
+        {
+            return "java.util.Date";
+        }
+
         return this.get(name).type.getName();
     }
 }

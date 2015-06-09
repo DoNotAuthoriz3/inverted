@@ -12,6 +12,8 @@ import org.junit.Test;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class whenReadingATTFromYahoo
@@ -122,16 +124,50 @@ public class whenReadingATTFromYahoo
         try { importer.getQuotes(quotes, tags); }
         catch (IllegalFormatException IFE) { joutln("Returned value for 'VOLUME' not a valid long"); }
 
-        Quote q = quotes.getQuote("T");
-        long vol = (Long) q.get(StockAttributeType.VOLUME);
-        assertTrue("The volume price for T is out of range (0, 1000000000): " + vol, vol >= 0 && vol <  100000000000l);
+        Quote q;
+        long vol;
 
-        q = quotes.getQuote("DIS");
-        vol = (Long) q.get(StockAttributeType.VOLUME);
-        assertTrue("The volume price for DIS is out of range (0, 1000000000): " + vol, vol >= 0 && vol <  100000000000l);
+        String[] tickers = {"T", "DIS", "TWC"};
+        for (String t : tickers)
+        {
+            q = quotes.getQuote(t);
+            vol = (Long) q.get(StockAttributeType.VOLUME);
+            assertTrue("The volume price for " + t + " is out of range (0, 1000000000): " + vol, vol >= 0 && vol <  100000000000l);
+        }
+    }
 
-        q = quotes.getQuote("TWC");
-        vol = (Long) q.get(StockAttributeType.VOLUME);
-        assertTrue("The volume price for T is out of range (0, 1000000000): " + vol, vol >= 0 && vol <  100000000000l);
+    @Test
+    public void canPulMultipleTagsFromYahoo()
+    {
+        tags.add(StockAttributeType.TIME);
+        tags.add(StockAttributeType.VOLUME);
+        EquityQuoteImporter importer = EquityQuoteImporter.getImporter("yahoo");
+
+        StockQuoteList quotes = new StockQuoteList();
+
+        try { importer.getQuotes(quotes, tags); }
+        catch (IllegalFormatException IFE) { joutln("Returned value for 'VOLUME' not a valid long"); }
+
+        Quote q;
+        Date date, today, lastWeek;
+        Calendar c = Calendar.getInstance();
+        c.add(Calendar.MINUTE, 5);
+        today = c.getTime();
+        c.add(Calendar.DATE, -7);
+        lastWeek = c.getTime();
+        long vol;
+
+        String[] tickers = {"T", "DIS", "TWC"};
+        for (String t : tickers)
+        {
+            q = quotes.getQuote(t);
+            date = (Date) q.get(StockAttributeType.TIME);
+            assertTrue("The last trade date for " + t + " is not between now and one week ago: " + date,
+                       date.after(lastWeek) && date.before(today));
+
+            vol = (Long) q.get(StockAttributeType.VOLUME);
+            assertTrue("The volume price for " + t + " is out of range (0, 1000000000): " + vol,
+                       vol >= 0 && vol <  100000000000l);
+        }
     }
 }
