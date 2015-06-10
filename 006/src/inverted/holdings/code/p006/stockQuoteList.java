@@ -24,7 +24,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-public class StockQuoteList extends ArrayList
+public class StockQuoteList extends ArrayList<Quote>
 {
     private int index;
 

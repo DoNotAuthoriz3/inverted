@@ -3,11 +3,9 @@ package inverted.holdings.tests.p006;
 import static inverted.holdings.code.p006.util.Jout.joutln;
 import static org.junit.Assert.*;
 
-import inverted.holdings.code.p006.EquityQuoteImporter;
-import inverted.holdings.code.p006.Quote;
-import inverted.holdings.code.p006.StockAttributeType;
-import inverted.holdings.code.p006.StockQuoteList;
+import inverted.holdings.code.p006.*;
 import inverted.holdings.code.p006.util.IllegalFormatException;
+import inverted.holdings.code.p006.util.RequiresTimeException;
 import org.junit.Test;
 
 import java.lang.reflect.Array;
@@ -169,5 +167,58 @@ public class whenReadingATTFromYahoo
             assertTrue("The volume price for " + t + " is out of range (0, 1000000000): " + vol,
                        vol >= 0 && vol <  100000000000l);
         }
+    }
+
+    @Test
+    public void canWriteStocksToFile()
+    {
+        ResultsWriter rw = ResultsWriter.getInstance("csv");
+
+        // Set up a list of things to have in our quote
+        List<StockAttributeType> attributes = buildAttributeList();
+
+        // Set up a dummy quote to write
+        Quote q = buildDummyQuote();
+
+        // Create our list
+        StockQuoteList quotes = new StockQuoteList();
+        quotes.add(q);
+
+        try
+        {
+            rw.appendQuotes(quotes, attributes);
+        }
+        catch (RequiresTimeException e)
+        {
+            e.printStackTrace();
+        }
+
+        // TODO: read and verify
+    }
+
+    private List<StockAttributeType> buildAttributeList()
+    {
+        List<StockAttributeType> attributes = new ArrayList<>();
+
+        attributes.add(StockAttributeType.TICKER);
+        attributes.add(StockAttributeType.ASK);
+        attributes.add(StockAttributeType.BID);
+        attributes.add(StockAttributeType.VOLUME);
+        attributes.add(StockAttributeType.TIME);
+
+        return attributes;
+    }
+
+    private Quote buildDummyQuote()
+    {
+        Quote q = new Quote("XOXO");
+
+        q.put(StockAttributeType.BID, 23.456);
+        q.put(StockAttributeType.ASK, 23.467);
+        q.put(StockAttributeType.VOLUME, 192034);
+        Date d = Calendar.getInstance().getTime();
+        q.put(StockAttributeType.TIME, d);
+
+        return q;
     }
 }

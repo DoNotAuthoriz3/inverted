@@ -109,5 +109,18 @@ public class Quote extends HashMap
             throw e;
         }
     }
+
+    @Override public String toString()
+    {
+        String myAttributes = "";
+        for (Object o : values())
+            myAttributes = myAttributes + o +  ",";
+
+        // Strip final comma
+        if (!"".equals(myAttributes))
+            myAttributes.substring(0, myAttributes.length() - 1);
+
+        return super.toString();
+    }
 }
 
