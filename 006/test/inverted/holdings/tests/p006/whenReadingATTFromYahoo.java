@@ -182,6 +182,7 @@ public class whenReadingATTFromYahoo
 
         // Create our list
         StockQuoteList quotes = new StockQuoteList();
+        quotes.clear();
         quotes.add(q);
 
         try

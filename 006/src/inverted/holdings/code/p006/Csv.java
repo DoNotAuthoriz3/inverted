@@ -4,10 +4,7 @@ import inverted.holdings.code.p006.util.RequiresTimeException;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by pilot on 6/9/15.
@@ -16,7 +13,7 @@ import java.util.List;
  */
 public class Csv implements ResultsWriter
 {
-    private static String baseFileName = "quoteRecords";
+    private static String baseFileName  = "quoteRecords";
     private static String fileExtension = ".csv";
 
     @Override public void appendQuotes(StockQuoteList quotes, List<StockAttributeType> attributes)
@@ -45,10 +42,15 @@ public class Csv implements ResultsWriter
         FileWriter fw = null;
         try
         {
-            fw = new FileWriter(baseFileName + fileExtension);
+            String date = String.valueOf(Calendar.getInstance().getTime().getDay()) +
+                          String.valueOf(Calendar.getInstance().getTime().getMonth() +
+                          String.valueOf(Calendar.getInstance().getTime().getYear()));
+
+            fw = new FileWriter(baseFileName + date + fileExtension, true);
+
             for (Quote q : quotes)
             {
-                fw.append(q.toString());
+                fw.append(q.toString() + "\n");
             }
         }
         catch (IOException e)

@@ -5,13 +5,12 @@ import inverted.holdings.code.p006.util.IllegalFormatException;
 import java.io.FileNotFoundException;
 import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
+import java.util.TreeMap;
 
 import static inverted.holdings.code.p006.util.Jout.joutln;
 
-public class Quote extends HashMap
+public class Quote extends TreeMap
 {
     private static DateFormat dateFormat = null;
 
@@ -113,14 +112,30 @@ public class Quote extends HashMap
     @Override public String toString()
     {
         String myAttributes = "";
-        for (Object o : values())
-            myAttributes = myAttributes + o +  ",";
+        for (Object o : this.keySet())
+        {
+            if ( o.equals(StockAttributeType.TICKER) )
+            {
+                myAttributes = get(o) + "," + myAttributes;
+            }
+            else if ( o.equals(StockAttributeType.TIME) )
+            {
+                Date time = (Date) get(o);
+                myAttributes = (myAttributes + "TIME=" + time.getTime() + ",");
+            }
+            else
+            {
+                myAttributes = (myAttributes + o.toString() + "=" + get(o) + ",");
+            }
+        }
 
-        // Strip final comma
+        // Strip the final comma
         if (!"".equals(myAttributes))
-            myAttributes.substring(0, myAttributes.length() - 1);
+        {
+            myAttributes = myAttributes.substring(0, myAttributes.length() - 1);
+        }
 
-        return super.toString();
+        return myAttributes;
     }
 }
 
