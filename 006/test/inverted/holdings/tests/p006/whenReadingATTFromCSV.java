@@ -4,7 +4,6 @@ import static inverted.holdings.code.p006.util.Jout.joutln;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 
 import inverted.holdings.code.p006.EquityQuoteImporter;
 import inverted.holdings.code.p006.Quote;
