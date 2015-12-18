@@ -11,7 +11,7 @@ import inverted.holdings.code.p006.StockAttributeType;
 import inverted.holdings.code.p006.util.IllegalFormatException;
 import org.junit.Test;
 
-public class whenReadingATTFromCSV
+public class WhenReadingATTFromCSV
 {
     ArrayList<StockAttributeType> tags = new ArrayList<>();
 
